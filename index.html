@@ -1061,10 +1061,473 @@
       line-height: 1.45;
     }
 
+    /* Header Top Bar & Menu Trigger */
+    .header-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .header-menu-btn {
+      background: rgba(255, 255, 255, 0.22);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 24px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: all 0.2s ease;
+    }
+
+    .header-menu-btn:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: translateY(-1px);
+    }
+
+    /* Floating Menu Action Button (Mobile & Desktop) */
+    .floating-menu-btn {
+      position: fixed;
+      bottom: 22px;
+      right: 20px;
+      z-index: 950;
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: white;
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50px;
+      padding: 10px 18px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4), 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .floating-menu-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.5);
+    }
+
+    .floating-menu-btn:active {
+      transform: translateY(0) scale(0.97);
+    }
+
+    @media (max-width: 640px) {
+      .floating-menu-btn {
+        bottom: 74px;
+        right: 14px;
+        padding: 8px 15px;
+        font-size: 0.85rem;
+      }
+    }
+
+    /* Side Menu Backdrop */
+    .side-menu-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .side-menu-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Side Menu Drawer */
+    .side-menu-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(390px, 88vw);
+      height: 100vh;
+      height: 100dvh;
+      background: #ffffff;
+      box-shadow: -10px 0 35px rgba(15, 23, 42, 0.22);
+      z-index: 1001;
+      transform: translateX(105%);
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      direction: rtl;
+      text-align: right;
+      border-left: 1.5px solid #e2e8f0;
+    }
+
+    .side-menu-drawer.open {
+      transform: translateX(0);
+    }
+
+    /* Drawer Header */
+    .side-menu-header {
+      padding: 18px 20px 16px;
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+    }
+
+    .side-menu-header-info h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin: 0 0 2px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .side-menu-header-info p {
+      font-size: 0.8rem;
+      opacity: 0.88;
+      margin: 0;
+    }
+
+    .side-menu-close-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+
+    .side-menu-close-btn:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    /* Drawer Body */
+    .side-menu-body {
+      padding: 16px 16px 28px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Drawer Section */
+    .menu-section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .menu-section-title {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid #f1f5f9;
+    }
+
+    .menu-section-title span.tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: #eff6ff;
+      color: #2563eb;
+      padding: 2px 8px;
+      border-radius: 12px;
+      border: 1px solid #bfdbfe;
+    }
+
+    .menu-section-desc {
+      font-size: 0.78rem;
+      color: #64748b;
+      margin-top: -3px;
+      margin-bottom: 3px;
+      line-height: 1.4;
+    }
+
+    /* Section 1: Destination List */
+    .menu-dest-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .menu-dest-item {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: right;
+      width: 100%;
+      font-family: inherit;
+    }
+
+    .menu-dest-item:hover {
+      border-color: #93c5fd;
+      background: #eff6ff;
+      transform: translateX(-3px);
+    }
+
+    .menu-dest-item.active {
+      background: #eff6ff;
+      border-color: #2563eb;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+    }
+
+    .menu-dest-item-main {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .menu-dest-icon {
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+
+    .menu-dest-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #0f172a;
+      line-height: 1.3;
+    }
+
+    .menu-dest-sub {
+      font-size: 0.74rem;
+      color: #64748b;
+      line-height: 1.3;
+      margin-top: 1px;
+    }
+
+    .menu-dest-badge {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #1e40af;
+      background: #dbeafe;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .menu-dest-item.active .menu-dest-badge {
+      background: #2563eb;
+      color: white;
+    }
+
+    .menu-dest-item.candidate {
+      background: #fefce8;
+      border-color: #fde047;
+    }
+
+    .menu-dest-item.candidate:hover {
+      background: #fef9c3;
+      border-color: #eab308;
+    }
+
+    .menu-dest-item.candidate .menu-dest-badge {
+      background: #fef08a;
+      color: #854d0e;
+    }
+
+    .menu-dest-item.candidate.active .menu-dest-badge {
+      background: #ca8a04;
+      color: white;
+    }
+
+    /* Menu Navigation Action Buttons */
+    .menu-nav-btn {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 9px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #334155;
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      width: 100%;
+      font-family: inherit;
+    }
+
+    .menu-nav-btn:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+      color: #0f172a;
+    }
+
+    .menu-nav-btn span.nav-tag {
+      font-size: 0.74rem;
+      font-weight: 600;
+      background: #e2e8f0;
+      color: #475569;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    /* Menu Flights Grid */
+    .menu-flight-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .menu-flight-link {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+      padding: 7px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .menu-flight-link:hover {
+      background: #dbeafe;
+      border-color: #60a5fa;
+    }
+
+    /* Menu Principles Preview */
+    .menu-principles-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.79rem;
+      color: #166534;
+      line-height: 1.4;
+    }
+
+    .menu-principles-preview div {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    /* Menu Cost Grid */
+    .menu-cost-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .menu-cost-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px 10px;
+      text-align: center;
+    }
+
+    .menu-cost-box .name {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-bottom: 2px;
+    }
+
+    .menu-cost-box .cost {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    /* Drawer Footer */
+    .side-menu-footer {
+      padding: 12px 16px;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .menu-whatsapp-btn {
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.86rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.2s ease;
+    }
+
+    .menu-whatsapp-btn:hover {
+      background: #1eb954;
+    }
+
+    .menu-bottom-close {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      font-family: inherit;
+    }
+
+    .menu-bottom-close:hover {
+      background: #e2e8f0;
+    }
+
     @media print {
       body { background: white; padding: 0; }
       header { padding: 20px; }
-      .tabs-nav, .destination-hub, .sticky-switcher, .table-jump-btn, .actions-bar, .photo-btn { display: none; }
+      .tabs-nav, .destination-hub, .sticky-switcher, .table-jump-btn, .actions-bar, .photo-btn, .side-menu-backdrop, .side-menu-drawer, .floating-menu-btn, .header-menu-btn, .menu-trigger-pill { display: none !important; }
       .tab-content { display: block !important; margin-bottom: 30px; }
     }
   </style>
@@ -1072,7 +1535,13 @@
 <body>
 
   <header>
-    <div class="header-badge">לוח תכנון חי ומדויק • גל ואודי דגן</div>
+    <div class="header-top-bar">
+      <div class="header-badge">לוח תכנון חי ומדויק • גל ואודי דגן</div>
+      <button class="header-menu-btn" onclick="openSideMenu()" title="פתיחת תפריט ניווט מהיר" aria-label="תפריט ניווט">
+        <span class="hamburger-icon">☰</span>
+        <span>תפריט ניווט מהיר</span>
+      </button>
+    </div>
     <h1>חופשת קיץ משפחתית – אוגוסט 2027</h1>
     <p>2.5 שבועות (18 יום) • הורים בני 39 • שני ילדים (בני 5 ו-7 באוגוסט 2027)</p>
   </header>
@@ -1080,7 +1549,7 @@
   <div class="container">
 
     <!-- Flight Alert -->
-    <div class="flight-alert">
+    <div id="section-flights" class="flight-alert">
       <div class="flight-alert-icon">✈️</div>
       <div class="flight-alert-content">
         <h4>דיוק הטיסות: טיסות ישירות ומפנקות ללא קונקשנים!</h4>
@@ -1122,7 +1591,7 @@
     </div>
 
     <!-- Formula Banner -->
-    <div class="formula-card">
+    <div id="section-formula" class="formula-card">
       <div class="formula-header">
         <h2>✨ עקרונות הברזל המעודכנים (דיוק לפי המשוב של גל)</h2>
       </div>
@@ -1155,7 +1624,7 @@
     </div>
 
     <!-- Exact Price Table -->
-    <div class="comparison-section">
+    <div id="section-costs" class="comparison-section">
       <div class="section-title">
         <span>💰 השוואת עלויות מדויקת ומאומתת (כולל טיסות ישירות ומזוודות)</span>
         <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">מחירי שיא אוגוסט למשפחה של 4 נפשות</span>
@@ -1273,7 +1742,7 @@
     <div id="itinerarySection" class="tabs-container">
 
       <!-- Destination Hub: Interactive Selector Cards -->
-      <div class="destination-hub">
+      <div id="section-destinations" class="destination-hub">
         <div class="hub-header">
           <div>
             <h3>🗺️ בחירת מסלול מפורט לחקירה והשוואה</h3>
@@ -1402,6 +1871,9 @@
       <!-- Sticky Floating Quick-Switcher Bar -->
       <div class="sticky-switcher">
         <div class="sticky-pills-wrap">
+          <button class="sticky-pill menu-trigger-pill" onclick="openSideMenu()" title="פתיחת תפריט ניווט מלא" style="background: #1e293b; color: white; border-color: #334155;">
+            <span>☰ תפריט</span>
+          </button>
           <button class="sticky-pill active" data-tab="tab-florida" onclick="showTab('tab-florida', true)">
             <span>🚀 פלורידה</span>
             <span style="font-size: 0.75rem; opacity: 0.85;">(~55k ₪)</span>
@@ -2016,6 +2488,196 @@
     </div>
   </div>
 
+  <!-- Floating Menu Trigger Button (Mobile & Desktop) -->
+  <button id="floatingMenuBtn" class="floating-menu-btn" onclick="openSideMenu()" aria-label="תפריט ניווט מהיר" title="תפריט ניווט מהיר">
+    <span class="floating-menu-icon">☰</span>
+    <span class="floating-menu-text">תפריט וניווט</span>
+  </button>
+
+  <!-- Side Menu Backdrop Overlay -->
+  <div id="sideMenuBackdrop" class="side-menu-backdrop" onclick="closeSideMenu()" aria-hidden="true"></div>
+
+  <!-- Side Navigation Drawer -->
+  <aside id="sideMenu" class="side-menu-drawer" aria-label="תפריט ניווט מהיר" role="dialog" aria-modal="true">
+    <!-- Header -->
+    <div class="side-menu-header">
+      <div class="side-menu-header-info">
+        <h3><span>🧭 תפריט ניווט מהיר</span></h3>
+        <p>חופשת קיץ משפחתית • אוגוסט 2027</p>
+      </div>
+      <button class="side-menu-close-btn" onclick="closeSideMenu()" aria-label="סגירת תפריט">✕</button>
+    </div>
+
+    <!-- Scrollable Body -->
+    <div class="side-menu-body">
+
+      <!-- 1. Destination Selection (First Section as requested) -->
+      <div class="menu-section">
+        <div class="menu-section-title">
+          <span>🗺️ בחירת מסלול מפורט לחקירה</span>
+          <span class="tag">מוקד ראשי</span>
+        </div>
+        <div class="menu-section-desc">הקישו על כל מסלול כדי לצפות בתוכנית הימים המלאה:</div>
+
+        <div class="menu-dest-list">
+          <!-- Florida -->
+          <button class="menu-dest-item active" data-tab="tab-florida" onclick="navigateToTab('tab-florida')">
+            <div class="menu-dest-item-main">
+              <span class="menu-dest-icon">🚀</span>
+              <div>
+                <div class="menu-dest-name">פלורידה – מעגל ממיאמי</div>
+                <div class="menu-dest-sub">טיסה ישירה, מונית Waymo, חלל, דיסני</div>
+              </div>
+            </div>
+            <div>
+              <span class="menu-dest-badge">~55,000 ₪</span>
+            </div>
+          </button>
+
+          <!-- NYC & PA -->
+          <button class="menu-dest-item" data-tab="tab-ny-pa" onclick="navigateToTab('tab-ny-pa')">
+            <div class="menu-dest-item-main">
+              <span class="menu-dest-icon">🏙️</span>
+              <div>
+                <div class="menu-dest-name">ארה"ב – ניו יורק ופנסילבניה</div>
+                <div class="menu-dest-sub">טיסת לילה, סנטרל פארק, ריזורט Kalahari</div>
+              </div>
+            </div>
+            <div>
+              <span class="menu-dest-badge">~50,000 ₪</span>
+            </div>
+          </button>
+
+          <!-- Austria -->
+          <button class="menu-dest-item" data-tab="tab-austria" onclick="navigateToTab('tab-austria')">
+            <div class="menu-dest-item-main">
+              <span class="menu-dest-icon">🇦🇹</span>
+              <div>
+                <div class="menu-dest-name">אוסטריה והאלפים</div>
+                <div class="menu-dest-sub">3.5 שעות טיסה, אגמים, Kinderhotel, ארדינג</div>
+              </div>
+            </div>
+            <div>
+              <span class="menu-dest-badge">~37,000 ₪</span>
+            </div>
+          </button>
+
+          <!-- South Korea -->
+          <button class="menu-dest-item candidate" data-tab="tab-korea" onclick="navigateToTab('tab-korea')">
+            <div class="menu-dest-item-main">
+              <span class="menu-dest-icon">🇰🇷</span>
+              <div>
+                <div class="menu-dest-name">דרום קוריאה (אופציה חדשה)</div>
+                <div class="menu-dest-sub">בטיחות שיא, Lotte World, Everland, אי ג'ג'ו</div>
+              </div>
+            </div>
+            <div>
+              <span class="menu-dest-badge candidate">~42,000 ₪</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. Flights Section -->
+      <div class="menu-section">
+        <div class="menu-section-title">
+          <span>✈️ טיסות ישירות וסינון מדויק</span>
+        </div>
+        <div class="menu-section-desc">2 מבוגרים + 2 ילדים (בני 5 ו-7) • 1–18 באוגוסט 2027 • ישיר:</div>
+
+        <button class="menu-nav-btn" onclick="navigateToSection('section-flights')">
+          <span>🔍 צפה בבאנר הטיסות בדף</span>
+          <span class="nav-tag">גלול לחלק זה 👈</span>
+        </button>
+
+        <div class="menu-flight-grid">
+          <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MIA%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="menu-flight-link">
+            <span>🛫 מיאמי (MIA) ↗</span>
+          </a>
+          <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20JFK%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="menu-flight-link">
+            <span>🛫 ניו יורק (JFK) ↗</span>
+          </a>
+          <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20EWR%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="menu-flight-link">
+            <span>🛫 ניוארק (EWR) ↗</span>
+          </a>
+          <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MUC%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="menu-flight-link">
+            <span>🛫 מינכן (MUC) ↗</span>
+          </a>
+          <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20VIE%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="menu-flight-link">
+            <span>🛫 וינה (VIE) ↗</span>
+          </a>
+          <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="menu-flight-link" style="background: #fefce8; border-color: #fde047; color: #854d0e;">
+            <span>🛫 סיאול (ICN) ↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. Key Principles Section -->
+      <div class="menu-section">
+        <div class="menu-section-title">
+          <span>✨ עקרונות הברזל לחופשה</span>
+        </div>
+        <div class="menu-section-desc">הדיוקים החשובים לפי המשוב של גל:</div>
+
+        <button class="menu-nav-btn" onclick="navigateToSection('section-formula')">
+          <span>🎯 צפה בעקרונות הברזל בדף</span>
+          <span class="nav-tag">גלול לחלק זה 👈</span>
+        </button>
+
+        <div class="menu-principles-preview">
+          <div><span>🎯</span><span><strong>עוגן 1 בלבד ביום:</strong> עד 3 שעות בבוקר, אחה"צ רגוע</span></div>
+          <div><span>👶</span><span><strong>אפס אטרקציות לילה:</strong> במיטה ב-20:00–20:30</span></div>
+          <div><span>🚕</span><span><strong>מונית Waymo אוטונומית:</strong> ללא נהג (במיאמי!)</span></div>
+          <div><span>🌊</span><span><strong>פארקי מים ומלונות עם בריכה</strong></span></div>
+        </div>
+      </div>
+
+      <!-- 4. Costs Comparison Section -->
+      <div class="menu-section">
+        <div class="menu-section-title">
+          <span>💰 השוואת עלויות ותקציב</span>
+        </div>
+        <div class="menu-section-desc">טבלת השוואה מאומתת לכל 4 האופציות:</div>
+
+        <button class="menu-nav-btn" onclick="navigateToSection('section-costs')">
+          <span>📊 צפה בטבלת ההשוואה המלאה</span>
+          <span class="nav-tag">גלול לחלק זה 👈</span>
+        </button>
+
+        <div class="menu-cost-grid">
+          <div class="menu-cost-box">
+            <div class="name">🚀 פלורידה</div>
+            <div class="cost">~55,000 ₪</div>
+          </div>
+          <div class="menu-cost-box">
+            <div class="name">🏙️ ארה"ב (ניו יורק)</div>
+            <div class="cost">~50,000 ₪</div>
+          </div>
+          <div class="menu-cost-box">
+            <div class="name">🇦🇹 אוסטריה בסיס</div>
+            <div class="cost" style="color: #16a34a;">~37,000 ₪</div>
+          </div>
+          <div class="menu-cost-box" style="background: #fefce8; border-color: #fde047;">
+            <div class="name" style="color: #854d0e;">🇰🇷 דרום קוריאה</div>
+            <div class="cost" style="color: #b45309;">~42,000 ₪</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="side-menu-footer">
+      <a href="https://api.whatsapp.com/send?text=%D7%AA%D7%9B%D7%A0%D7%95%D7%9F%20%D7%97%D7%95%D7%A4%D7%A9%D7%AA%20%D7%A7%D7%99%D7%A5%202027%20%D7%9C%D7%9E%D7%A9%D7%A4%D7%97%D7%94%3A%20https%3A%2F%2Fudidg.github.io%2Fsummary-trip27%2F" target="_blank" rel="noopener" class="menu-whatsapp-btn">
+        <span>📲 שתף קישור זה עם גל ב-WhatsApp</span>
+      </a>
+      <button class="menu-bottom-close" onclick="closeSideMenu()">
+        <span>✕ סגור תפריט</span>
+      </button>
+    </div>
+  </aside>
+
+
   <script>
     function showTab(tabId, shouldScroll = false) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -2050,6 +2712,9 @@
         history.replaceState(null, null, '#' + tabId);
       }
 
+      // Update Side Menu active highlight
+      updateSideMenuActiveTab(tabId);
+
       // Smooth scroll if requested
       if (shouldScroll) {
         const sec = document.getElementById('itinerarySection');
@@ -2068,6 +2733,71 @@
         const y = sec.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
+    }
+
+    /* Side Menu Drawer Controller */
+    function openSideMenu() {
+      const menu = document.getElementById('sideMenu');
+      const backdrop = document.getElementById('sideMenuBackdrop');
+      if (menu && backdrop) {
+        menu.classList.add('open');
+        backdrop.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        updateSideMenuActiveTab();
+      }
+    }
+
+    function closeSideMenu() {
+      const menu = document.getElementById('sideMenu');
+      const backdrop = document.getElementById('sideMenuBackdrop');
+      if (menu && backdrop) {
+        menu.classList.remove('open');
+        backdrop.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function navigateToTab(tabId) {
+      showTab(tabId, true);
+      closeSideMenu();
+    }
+
+    function navigateToSection(sectionId) {
+      closeSideMenu();
+      const el = document.getElementById(sectionId);
+      if (el) {
+        const yOffset = -25;
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+
+    function updateSideMenuActiveTab(tabId) {
+      const currentTab = tabId || (document.querySelector('.tab-content.active') ? document.querySelector('.tab-content.active').id : 'tab-florida');
+      document.querySelectorAll('.menu-dest-item').forEach(item => {
+        if (item.getAttribute('data-tab') === currentTab) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    }
+
+    // Touch swipe support to close side menu on mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const sideMenuEl = document.getElementById('sideMenu');
+    if (sideMenuEl) {
+      sideMenuEl.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      sideMenuEl.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        // In RTL, swiping right (finger moves rightward -> touchEndX > touchStartX) closes drawer
+        if (touchEndX - touchStartX > 60) {
+          closeSideMenu();
+        }
+      }, { passive: true });
     }
 
     // Auto-select tab based on URL hash on page load
@@ -2327,6 +3057,7 @@
     document.addEventListener('keydown', function(event) {
       if (event.key === 'Escape') {
         closePhotoModal();
+        closeSideMenu();
       }
     });
   </script>
