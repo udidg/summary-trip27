@@ -15,6 +15,7 @@
       --accent: #f59e0b;
       --success: #10b981;
       --danger: #ef4444;
+      --purple: #8b5cf6;
       --bg: #f8fafc;
       --card-bg: #ffffff;
       --text: #1e293b;
@@ -69,12 +70,12 @@
     header p {
       font-size: 1.1rem;
       opacity: 0.9;
-      max-width: 600px;
+      max-width: 650px;
       margin: 0 auto;
     }
 
     .container {
-      max-width: 1050px;
+      max-width: 1150px;
       margin: -25px auto 0;
       padding: 0 20px;
     }
@@ -151,7 +152,8 @@
       width: 100%;
       border-collapse: collapse;
       text-align: right;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
+      min-width: 850px;
     }
 
     th {
@@ -182,6 +184,7 @@
 
     .badge-win { background: #dcfce7; color: #15803d; }
     .badge-star { background: #dbeafe; color: #1d4ed8; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
     .badge-warn { background: #fef3c7; color: #b45309; }
 
     /* Tabs for Deep Dive */
@@ -191,7 +194,7 @@
 
     .tabs-nav {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       margin-bottom: 20px;
       overflow-x: auto;
       padding-bottom: 4px;
@@ -200,9 +203,9 @@
     .tab-btn {
       background: white;
       border: 1px solid var(--border);
-      padding: 12px 24px;
+      padding: 12px 20px;
       border-radius: 50px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       cursor: pointer;
       color: var(--text-muted);
@@ -251,7 +254,7 @@
     }
 
     .detail-card h4 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: #0f172a;
       margin-bottom: 12px;
       display: flex;
@@ -287,9 +290,9 @@
     }
 
     .decision-card p {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: #78350f;
-      max-width: 750px;
+      max-width: 800px;
       margin: 0 auto 16px;
     }
 
@@ -359,7 +362,7 @@
           <span>טבע פעיל (רכבלים, מים, חיות, מפלים) בלי שחיקת תורים והייפ מוגזם.</span>
         </div>
         <div class="rule-item">
-          <strong>🛍️ נוחות ופינוק אמריקאי</strong>
+          <strong>🛍️ נוחות צפון-אמריקאית</strong>
           <span>אוהבים מאוד את Target, Cheesecake Factory, Hard Rock ו-3 ימים במנהטן.</span>
         </div>
       </div>
@@ -368,65 +371,74 @@
     <!-- Comparison Table -->
     <div class="comparison-section">
       <div class="section-title">
-        <span>📊 השוואת 3 האופציות על השולחן</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">מעודכן לשיחות האחרונות</span>
+        <span>📊 השוואת 4 האופציות על השולחן</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">כולל הרי הרוקי הקנדיים</span>
       </div>
       <table>
         <thead>
           <tr>
             <th>פרמטר</th>
-            <th>🇦🇹 אוסטריה (חבל זלצבורג)</th>
+            <th>🇦🇹 אוסטריה (זלצבורג)</th>
             <th>🇺🇸 ניו יורק (מנהטן + קטסקילס)</th>
+            <th>🇨🇦 רוקיס קנדיים (באנף/קאנמור)</th>
             <th>🇺🇸 פלורידה (אורלנדו + מיאמי)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>סטטוס נוכחי</strong></td>
-            <td><span class="badge badge-win">מובילה חזקה (טבע ורוגע)</span></td>
-            <td><span class="badge badge-star">מובילה חזקה (אמריקה ומנהטן)</span></td>
+            <td><span class="badge badge-win">מובילה (רוגע, ילדים, תקציב)</span></td>
+            <td><span class="badge badge-star">מובילה (אמריקה, מנהטן ושופינג)</span></td>
+            <td><span class="badge badge-purple">נבדקת (טבע מהפנט, טיסה קשה)</span></td>
             <td><span class="badge badge-warn">עדיפות שניה (חום ופארקים)</span></td>
           </tr>
           <tr>
             <td><strong>כמות מלונות (Setup)</strong></td>
-            <td><strong>1 בלבד!</strong> (16 לילות בדירת נופש אחת)</td>
+            <td><strong>1 בלבד!</strong> (דירת נופש לכל הטיול)</td>
             <td><strong>2 בלבד</strong> (3 מנהטן + 14 בית כפרי)</td>
+            <td><strong>1 או 2</strong> (קאנמור / באנף)</td>
             <td><strong>3 מלונות</strong> (אורלנדו, חוף, מיאמי)</td>
           </tr>
           <tr>
-            <td><strong>נסיעות יומיות ממוצעות</strong></td>
-            <td>15–30 דקות בלבד</td>
-            <td>20–40 דקות בלבד</td>
-            <td>30–60 דקות (ועומסי תנועה)</td>
+            <td><strong>נסיעות יומיות</strong></td>
+            <td><strong>15–30 דקות בלבד</strong></td>
+            <td><strong>20–40 דקות בלבד</strong></td>
+            <td><strong>25–55 דק'</strong> (ג'אספר רחוקה מדי!)</td>
+            <td><strong>30–60 דק'</strong> (ועומסי תנועה)</td>
           </tr>
           <tr>
             <td><strong>אופי הטבע</strong></td>
-            <td>רכבלים, פסגות ירוקות, פארקי עץ, מגלשות הרים, אגמים צלולים</td>
+            <td>רכבלים עם גני עץ, מגלשות הרים, אגמים צלולים, מכרות מלח</td>
             <td>יערות, אגמים מתוקים, מפלים, חוות קטיף, פארק מים מקורה</td>
-            <td>ביצות אליגטורים, חופי אוקיינוס, מעיינות טבעיים</td>
+            <td>אגמי טורקיז מהפנטים, קרחונים, צפייה בדובי פרא ואיילים</td>
+            <td>ביצות אליגטורים, חופי אוקיינוס, מעיינות</td>
           </tr>
           <tr>
-            <td><strong>מזג אוויר באוגוסט</strong></td>
-            <td>נעים מאוד (22–26°C), סיכוי לגשם</td>
-            <td>נעים-חם קיצי (26–30°C)</td>
-            <td><strong>לוהט ולח קיצוני (35°C, 90% לחות)</strong></td>
+            <td><strong>טיסות וג'ט-לג</strong></td>
+            <td><strong>ישיר 3.5 שעות</strong>, 1 שעה ג'ט-לג</td>
+            <td><strong>ישיר 11 שעות</strong>, 7 שעות ג'ט-לג</td>
+            <td><strong>עצירה (17–20 שעות), 9–10 שעות ג'ט-לג!</strong></td>
+            <td>עצירה (15–18 שעות), 7 שעות ג'ט-לג</td>
           </tr>
           <tr>
-            <td><strong>ג'ט-לג</strong></td>
-            <td>1 שעה בלבד (אפס השפעה)</td>
-            <td>7 שעות (בימים הראשונים במנהטן)</td>
-            <td>7 שעות</td>
+            <td><strong>מזג אוויר וסיכונים</strong></td>
+            <td>נעים (22–26°C), סיכוי לגשם</td>
+            <td>קיצי נעים (26–30°C)</td>
+            <td>נעים (20–25°C), <strong>סיכון לעשן שריפות באוגוסט</strong></td>
+            <td><strong>לוהט ולח (35°C, 90% לחות), סופות יומיות</strong></td>
           </tr>
           <tr>
             <td><strong>פינוק אמריקאי</strong></td>
             <td>❌ אין Target / מסעדות רשת</td>
             <td>✔️ Target, Cheesecake, Hard Rock</td>
+            <td>✔️ שפע אמריקאי מלא (Walmart, מסעדות, אנגלית)</td>
             <td>✔️ שפע אמריקאי מלא</td>
           </tr>
           <tr>
             <td><strong>עלות בסיס משוערת</strong></td>
             <td><strong>~$8,000 – $8,800</strong> (~31,000 ₪)</td>
             <td><strong>~$11,500 – $12,500</strong> (~45,000 ₪)</td>
+            <td><strong>~$14,000 – $15,500</strong> (~53,000 ₪)</td>
             <td><strong>~$14,500+</strong> (~54,000 ₪)</td>
           </tr>
         </tbody>
@@ -436,16 +448,17 @@
     <!-- Tabs Navigation -->
     <div class="tabs-container">
       <div class="tabs-nav">
-        <button class="tab-btn active" onclick="showTab('tab-austria')">🇦🇹 פירוט: אוסטריה (בסיס 1)</button>
-        <button class="tab-btn" onclick="showTab('tab-ny')">🇺🇸 פירוט: ניו יורק (2 בסיסים)</button>
-        <button class="tab-btn" onclick="showTab('tab-florida')">🇺🇸 פירוט: פלורידה (עדיפות ב')</button>
+        <button class="tab-btn active" onclick="showTab('tab-austria')">🇦🇹 אוסטריה (בסיס 1)</button>
+        <button class="tab-btn" onclick="showTab('tab-ny')">🇺🇸 ניו יורק (2 בסיסים)</button>
+        <button class="tab-btn" onclick="showTab('tab-rockies')">🇨🇦 רוקיס קנדיים (בסיס 1)</button>
+        <button class="tab-btn" onclick="showTab('tab-florida')">🇺🇸 פלורידה (עדיפות ב')</button>
       </div>
 
       <!-- Tab 1: Austria -->
       <div id="tab-austria" class="tab-content active">
         <h3>🇦🇹 אוסטריה – "דירת נופש אחת, אפס טרטור וטבע מושלם לילדים"</h3>
         <p style="color: var(--text-muted); margin-bottom: 20px;">
-          נוחתים במינכן (טיסה של 3.5 שעות), נסיעה של שעתיים ומתמקמים בדירת נופש כפרית מרווחת ומפנקת (100 מ"ר עם מטבח, מרפסת וחצר) בחבל זלצבורג (פלאכאו / ואגריין) לכל הטיול!
+          נוחתים במינכן (טיסה ישירה של 3.5 שעות), נסיעה של שעתיים ומתמקמים בדירת נופש כפרית מרווחת ומפנקת (100 מ"ר עם מטבח, מרפסת וחצר) בחבל זלצבורג (פלאכאו / ואגריין) לכל הטיול!
         </p>
 
         <div class="card-grid">
@@ -481,20 +494,11 @@
 
         <div class="card-grid">
           <div class="detail-card">
-            <h4>🏙️ חלק א': מנהטן (3 לילות ראשונים)</h4>
+            <h4>🏙️ מנהטן + עמק ההדסון</h4>
             <ul>
-              <li>סנטרל פארק – גני שעשועים, שייט בסירות משוטים וגן החיות.</li>
-              <li>מוזיאון הטבע (AMNH) – אולם הדינוזאורים המפורסם.</li>
-              <li>ארוחה ב-<strong>Hard Rock Cafe בטיימס סקוור</strong>.</li>
-              <li>חנות הצעצועים האגדית FAO Schwarz ופסל החירות.</li>
-            </ul>
-          </div>
-
-          <div class="detail-card">
-            <h4>🌲 חלק ב': עמק ההדסון (14 לילות בבית כפרי)</h4>
-            <ul>
+              <li><strong>מנהטן (3 לילות):</strong> סנטרל פארק, מוזיאון הטבע (דינוזאורים), Hard Rock Cafe Times Square, חנות FAO Schwarz.</li>
               <li><strong>שמורת Minnewaska:</strong> אגמים צלולים ומפלים בהליכה קלילה (20 דק' נסיעה).</li>
-              <li><strong>פארק מים מקורה ומחומם Kartrite:</strong> 45 דק' נסיעה.</li>
+              <li><strong>פארק מים מקורה Kartrite:</strong> 45 דק' נסיעה.</li>
               <li>חוות קטיף פירות יער (Kelder's Farm) עם מתקני חווה מקסימים.</li>
               <li>קניות ב-<strong>Woodbury Common</strong>, מרכזי <strong>Target</strong> וסניפי <strong>Cheesecake Factory</strong>.</li>
             </ul>
@@ -513,11 +517,42 @@
         </div>
       </div>
 
-      <!-- Tab 3: Florida -->
+      <!-- Tab 3: Canadian Rockies -->
+      <div id="tab-rockies" class="tab-content">
+        <h3>🇨🇦 הרי הרוקי הקנדיים – "אגמי טורקיז וחיות בר"</h3>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
+          טבע מהיפים בעולם (אגם לואיז, שמורת באנף). טיסה עם עצירת ביניים לקלגרי ונסיעה של שעה ורבע לבסיס בעיירה קאנמור (Canmore) או באנף.
+        </p>
+
+        <div class="card-grid">
+          <div class="detail-card">
+            <h4>🏔️ מה הילדים יעשו פה?</h4>
+            <ul>
+              <li><strong>ספארי חיות בר:</strong> צפייה באיילים ודובים בטבע לצד הדרכים ובטוח מהרכב.</li>
+              <li><strong>אגמי טורקיז מהפנטים:</strong> שייט קאנו באגם לואיז ואגם מוריין (צבע מים לא אמיתי).</li>
+              <li><strong>קניון ג'ונסטון (Johnston Canyon):</strong> גשרי עץ תלויים מעל מפלים ומערות (הליכה קלה של שעה).</li>
+              <li><strong>רכבל באנף (Banff Gondola):</strong> עליה לפסגה מעל העננים וטיילת עץ נופית.</li>
+              <li><strong>נוחות צפון אמריקאית:</strong> רכבי SUV ענקיים, אנגלית, וסופרמרקטים מעולים.</li>
+            </ul>
+          </div>
+
+          <div class="detail-card">
+            <h4>⚠️ נקודות תורפה קריטיות</h4>
+            <ul>
+              <li><strong>מגבלת שעה נסיעה:</strong> שמורת ג'אספר ושדה הקרח קולומביה רחוקים מדי (2.5 עד 4 שעות) ולא יתאימו לכלל השעה.</li>
+              <li><strong>טיסה קשה וג'ט-לג:</strong> 18–20 שעות בדרכים עם עצירת ביניים, ו-<strong>9–10 שעות הפרש שעות</strong>.</li>
+              <li><strong>סיכון עשן שריפות יער:</strong> אוגוסט הוא שיא עונת השריפות במערב קנדה.</li>
+              <li><strong>עלות גבוהה מאוד באוגוסט:</strong> לינה יקרה מאוד בקאנמור/באנף. סה"כ בסיס: <strong>~$14,500 (~54,000 ₪)</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Florida -->
       <div id="tab-florida" class="tab-content">
         <h3>🇺🇸 פלורידה – "מרכז החלל, פארקים ווילה עם בריכה" (עדיפות שניה)</h3>
         <p style="color: var(--text-muted); margin-bottom: 20px;">
-          אפשרות שעדיין על השולחן, אך ירדה בעדיפות עקב החום הכבד באוגוסט, הצורך ב-3 מעברי מלונות (או נסיעת 4 שעות), ועלויות כרטיסי הפארקים.
+          ירדה בעדיפות עקב החום הכבד באוגוסט, הצורך ב-3 מעברי מלונות (או נסיעת 4 שעות), ועלויות כרטיסי הפארקים.
         </p>
 
         <div class="card-grid">
@@ -544,9 +579,11 @@
 
     <!-- Decision Box -->
     <div class="decision-card">
-      <h3>🎯 צומת ההחלטה הבא שלכם:</h3>
+      <h3>🎯 תמונת המצב להכרעה ביניכם:</h3>
       <p>
-        האם המשיכה למנהטן, לשפה האנגלית, ולקניות/מסעדות האמריקאיות שווה לכם את תוספת התקציב (כ-13,000–14,000 ₪) ואת הג'ט-לג בימים הראשונים?
+        <strong>אוסטריה</strong> מנצחת בנוחות, בנסיעות הקצרות, ובמחיר (~31,000 ₪).<br>
+        <strong>ניו יורק</strong> מנצחת באווירה האמריקאית, במנהטן, בקניות ובמסעדות (~45,000 ₪).<br>
+        <strong>הרוקיס הקנדיים</strong> מציעים טבע אלוהי, אך סובלים מטיסה מתישה, 10 שעות ג'ט-לג, סיכון עשן שריפות ומחיר יקר (~53,000 ₪).
       </p>
       <div class="actions-bar">
         <button class="btn btn-print" onclick="window.print()">🖨️ הדפסה / שמירה כ-PDF לשיתוף</button>
