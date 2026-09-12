@@ -204,19 +204,6 @@
       color: var(--primary);
     }
 
-    .badge {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .badge-win { background: #dcfce7; color: #15803d; }
-    .badge-star { background: #dbeafe; color: #1d4ed8; }
-    .badge-fire { background: #ffedd5; color: #c2410c; }
-    .badge-purple { background: #f3e8ff; color: #7e22ce; }
-
     /* Tabs for Deep Dive */
     .tabs-container {
       margin-bottom: 30px;
@@ -286,7 +273,8 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
     }
 
     .block-badge {
@@ -307,7 +295,27 @@
     .block-meta {
       font-size: 0.85rem;
       color: var(--text-muted);
-      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .photo-btn {
+      background: #ede9fe;
+      color: #6d28d9;
+      border: 1px solid #ddd6fe;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .photo-btn:hover {
+      background: #ddd6fe;
+      transform: translateY(-1px);
     }
 
     .day-list {
@@ -343,6 +351,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
     }
 
     .drive-tag {
@@ -363,6 +373,135 @@
       font-size: 0.9rem;
       color: #475569;
       line-height: 1.5;
+    }
+
+    /* Modal Styling */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      animation: modalFadeIn 0.25s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-dialog {
+      background: white;
+      border-radius: 20px;
+      max-width: 820px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      position: relative;
+      animation: modalScaleUp 0.25s ease;
+    }
+
+    @keyframes modalScaleUp {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 10;
+    }
+
+    .modal-header h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .modal-close {
+      background: #f1f5f9;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .modal-body {
+      padding: 24px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .gallery-card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .gallery-card-desc {
+      padding: 12px;
+      font-size: 0.86rem;
+      color: #334155;
+      line-height: 1.4;
+      flex-grow: 1;
+    }
+
+    .gallery-card-desc strong {
+      display: block;
+      color: #0f172a;
+      margin-bottom: 2px;
+      font-size: 0.92rem;
     }
 
     /* Decision Box */
@@ -421,7 +560,7 @@
     @media print {
       body { background: white; padding: 0; }
       header { padding: 20px; }
-      .tabs-nav, .actions-bar { display: none; }
+      .tabs-nav, .actions-bar, .photo-btn { display: none; }
       .tab-content { display: block !important; margin-bottom: 30px; }
     }
   </style>
@@ -539,7 +678,7 @@
       <div id="tab-florida" class="tab-content active">
         <h3 style="margin-bottom: 6px;">🚀 פלורידה – "שיגור חלל ביום, מונית אוטונומית והפארקים הטובים בעולם"</h3>
         <p style="color: var(--text-muted); margin-bottom: 24px;">
-          מותאם בול לילדים: <strong>אפס אטרקציות לילה</strong>, נסיעות קצרות, ובמיטה מוקדם!
+          מותאם בול לילדים: <strong>אפס אטרקציות לילה</strong>, נסיעות קצרות, ובמיטה מוקדם! לחצו על כפתורי התמונות בכל שלב.
         </p>
 
         <!-- Block 1 -->
@@ -547,7 +686,8 @@
           <div class="block-header">
             <span class="block-badge">מוקד 1</span>
             <span class="block-title">קוקואה ביץ' וחוף החלל (3 לילות)</span>
-            <span class="block-meta">מלון חוף • נסיעה משדה התעופה: 45 דק'</span>
+            <span class="block-meta">מלון חוף • 45 דק' משדה התעופה</span>
+            <button class="photo-btn" onclick="openPhotoModal('fl-ksc')">📸 הצג תמונות משלב החלל והחוף</button>
           </div>
           <div class="day-list">
             <div class="day-card">
@@ -560,7 +700,7 @@
             </div>
             <div class="day-card highlight">
               <div class="day-title"><span>יום 3 (שעות הבוקר/אחה"צ): ספארי סירות לדולפינים ופרות ים</span><span class="drive-tag">25 דק' נסיעה</span></div>
-              <div class="day-desc">במקום שייט לילה חשוך ומפחיד – שייט יום שקט ומרתק בנהר Banana River: צפייה בדולפינים שקופצים ליד הסירה ובפרות ים ענקיות (Manatees).</div>
+              <div class="day-desc">במקום שייט לילה חשוך – שייט יום שקט ומרתק בנהר Banana River: צפייה בדולפינים שקופצים ליד הסירה ובפרות ים ענקיות (Manatees).</div>
             </div>
             <div class="day-card highlight">
               <div class="day-title"><span>יום 4: צפייה בשיגור רקטת SpaceX (שעות היום) ומעבר לאורלנדו</span><span class="drive-tag transit">50 דק' מעבר</span></div>
@@ -575,6 +715,7 @@
             <span class="block-badge">מוקד 2</span>
             <span class="block-title">אורלנדו – וילה פרטית עם בריכה (8 לילות)</span>
             <span class="block-meta">וילה בריזורט • נסיעות יומיות: 15–30 דק'</span>
+            <button class="photo-btn" onclick="openPhotoModal('fl-orlando')">📸 הצג תמונות מ-Volcano Bay והווילה</button>
           </div>
           <div class="day-list">
             <div class="day-card">
@@ -617,7 +758,8 @@
           <div class="block-header">
             <span class="block-badge">מוקד 3</span>
             <span class="block-title">מיאמי – עיר, חוף ומונית אוטונומית (5 לילות)</span>
-            <span class="block-meta">מלון חוף משפחתי • שמש, טכנולוגיה וטבע</span>
+            <span class="block-meta">מלון חוף משפחתי • שמש וטכנולוגיה</span>
+            <button class="photo-btn" onclick="openPhotoModal('fl-miami')">📸 הצג תמונות ממונית Waymo והאוורגליידס</button>
           </div>
           <div class="day-list">
             <div class="day-card highlight-purple">
@@ -656,7 +798,8 @@
           <div class="block-header">
             <span class="block-badge">מוקד 1</span>
             <span class="block-title">מנהטן, ניו יורק (3 לילות – ללא רכב)</span>
-            <span class="block-meta">מלון במידטאון • ימים קלילים ביום</span>
+            <span class="block-meta">מלון במידטאון • ימים קלילים</span>
+            <button class="photo-btn" onclick="openPhotoModal('ny-manhattan')">📸 הצג תמונות ממנהטן וסנטרל פארק</button>
           </div>
           <div class="day-list">
             <div class="day-card">
@@ -683,7 +826,8 @@
           <div class="block-header">
             <span class="block-badge">מוקד 2</span>
             <span class="block-title">פנסילבניה – ריזורט פארק המים Kalahari (4 לילות)</span>
-            <span class="block-meta">פארק המים המקורה הגדול בארה"ב כלול במחיר החדר!</span>
+            <span class="block-meta">פארק המים המקורה הגדול בארה"ב כלול במחיר!</span>
+            <button class="photo-btn" onclick="openPhotoModal('ny-kalahari')">📸 הצג תמונות מ-Kalahari ועולם השוקולד</button>
           </div>
           <div class="day-list">
             <div class="day-card highlight">
@@ -710,7 +854,8 @@
           <div class="block-header">
             <span class="block-badge">מוקדים 3 ו-4</span>
             <span class="block-title">עמק ההדסון, קטסקילס ואגם לייק ג'ורג' (9 לילות)</span>
-            <span class="block-meta">טבע, אגמים, קטיף, אאוטלטים וספינות קיטור</span>
+            <span class="block-meta">טבע, אגמים, קטיף וספינות קיטור</span>
+            <button class="photo-btn" onclick="openPhotoModal('ny-nature')">📸 הצג תמונות משמורת Minnewaska ולייק ג'ורג'</button>
           </div>
           <div class="day-list">
             <div class="day-card">
@@ -745,7 +890,8 @@
           <div class="block-header">
             <span class="block-badge">בסיס 1</span>
             <span class="block-title">חבל זלצבורג – פלאכאו / ואגריין (8 לילות)</span>
-            <span class="block-meta">מלון דירות 4 כוכבים עם בריכה • נסיעות יומיות: 10–35 דק'</span>
+            <span class="block-meta">מלון דירות 4 כוכבים עם בריכה • נסיעות: 10–35 דק'</span>
+            <button class="photo-btn" onclick="openPhotoModal('at-salzburg')">📸 הצג תמונות מרכבל Wagraini ומערת הקרח</button>
           </div>
           <div class="day-list">
             <div class="day-card">
@@ -784,7 +930,8 @@
           <div class="block-header">
             <span class="block-badge">בסיס 2</span>
             <span class="block-title">חבל טירול – קפרון וצל-אם-זה (8 לילות)</span>
-            <span class="block-meta">אגמים, קרחונים, סכרים ומפלים ענקיים</span>
+            <span class="block-meta">אגמים, קרחונים, סכרים ומפלים</span>
+            <button class="photo-btn" onclick="openPhotoModal('at-tyrol')">📸 הצג תמונות מאגם צל-אם-זה ומפלי קרימל</button>
           </div>
           <div class="day-list">
             <div class="day-card">
@@ -820,15 +967,28 @@
     <div class="decision-card">
       <h3>🎯 המסקנה הסופית להחלטה:</h3>
       <p>
-        <strong>1. פלורידה (~54,000 ₪):</strong> מנצחת בשיגור חלל ביום + <strong>מונית אוטונומית (Waymo)</strong> + דולפינים + Volcano Bay (ללא אטרקציות לילה!).<br>
-        <strong>2. צפון-מזרח ארה"ב (~50,000 ₪):</strong> מנצח במנהטן + פארק המים המקורה הגדול בארה"ב (Kalahari) + הרשי שוקולד וטבע ירוק.<br>
-        <strong>3. אוסטריה (~37,000 ₪):</strong> מנצחת במערת הקרח הגדולה בעולם + פארק המים הגדול בעולם (Erding) + אפס ג'ט-לג וחיסכון של כ-17,000 ₪.
+        <strong>1. פלורידה (~54,000 ₪):</strong> שיגור חלל ביום + <strong>מונית אוטונומית (Waymo)</strong> + דולפינים + Volcano Bay (ללא אטרקציות לילה!).<br>
+        <strong>2. צפון-מזרח ארה"ב (~50,000 ₪):</strong> מנהטן + פארק המים המקורה הגדול בארה"ב (Kalahari) + הרשי שוקולד וטבע ירוק.<br>
+        <strong>3. אוסטריה (~37,000 ₪):</strong> מערת הקרח הגדולה בעולם + פארק המים הגדול בעולם (Erding) + אפס ג'ט-לג וחיסכון של כ-17,000 ₪.
       </p>
       <div class="actions-bar">
         <button class="btn btn-print" onclick="window.print()">🖨️ הדפסה / שמירה כ-PDF לשיתוף</button>
       </div>
     </div>
 
+  </div>
+
+  <!-- Interactive Modal for Stage Photos -->
+  <div id="photoModal" class="modal-overlay" onclick="closeModalOnBg(event)">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="modalTitle">תמונות מהשלב</h3>
+        <button class="modal-close" onclick="closePhotoModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="modalGallery" class="gallery-grid"></div>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -838,6 +998,213 @@
       document.getElementById(tabId).classList.add('active');
       event.target.classList.add('active');
     }
+
+    // Photo Data for Each Stage
+    const stagePhotos = {
+      'fl-ksc': {
+        title: 'קוקואה ביץ\', מרכז החלל קנדי ושייט דולפינים',
+        photos: [
+          {
+            url: 'https://images.unsplash.com/photo-1517976487507-5b3b4a45097c?w=700&auto=format&fit=crop&q=80',
+            title: 'שיגור רקטת SpaceX Falcon 9',
+            desc: 'טיל אמיתי ממריא בשעות היום/אחה"צ מקייפ קנברל מול החוף – שובל עשן ורעם אדיר.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=700&auto=format&fit=crop&q=80',
+            title: 'מעבורת החלל אטלנטיס (מרכז קנדי)',
+            desc: 'מעבורת חלל אמיתית תלויה מול העיניים, רקטות ענק ומתחמי משחקי חלל ממוזגים.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1570481662006-a3a1374699e8?w=700&auto=format&fit=crop&q=80',
+            title: 'שייט דולפינים ופרות ים בנהר Banana River',
+            desc: 'דולפינים קופצים ליד הסירה במי המפרץ השקטים בבוקר – חוויית טבע מרגשת לילדים.'
+          }
+        ]
+      },
+      'fl-orlando': {
+        title: 'אורלנדו: פארק המים Volcano Bay ווילה פרטית',
+        photos: [
+          {
+            url: 'https://images.unsplash.com/photo-1582650625119-3a31f8418b7d?w=700&auto=format&fit=crop&q=80',
+            title: 'פארק המים Volcano Bay (יוניברסל)',
+            desc: 'הר געש ענק בלב הפארק, נהר אבובים קסום וחוף חולי מושלם עם בריכת גלים.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=700&auto=format&fit=crop&q=80',
+            title: 'וילה פרטית בריזורט באורלנדו',
+            desc: 'בריכה פרטית מגודרת צמודה לסלון, 4 חדרי שינה מרווחים, מטבח ענק ושקט משפחתי.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=700&auto=format&fit=crop&q=80',
+            title: 'דיסני Magic Kingdom & Animal Kingdom',
+            desc: 'טירת הקסם, מתקני הילדים הקלאסיים, וספארי ג\'יפים אמיתי בין חיות אפריקה.'
+          }
+        ]
+      },
+      'fl-miami': {
+        title: 'מיאמי: מונית אוטונומית Waymo ושמורת האוורגליידס',
+        photos: [
+          {
+            url: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=700&auto=format&fit=crop&q=80',
+            title: 'מונית אוטונומית Waymo (רכב ללא נהג)',
+            desc: 'יושבים מאחור, מושב הנהג ריק וההגה מסתובב מעצמו! חוויית מדע בדיוני במיאמי.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=700&auto=format&fit=crop&q=80',
+            title: 'שייט רחפת ותנינים באוורגליידס',
+            desc: 'רחפת אוויר מהירה שגולשת מעל המים והעשב לצפייה בתניני בר פראיים בטבע.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=700&auto=format&fit=crop&q=80',
+            title: 'חופי האוקיינוס והטיילת של מיאמי',
+            desc: 'חופים רחבים עם מים חמימים, אקווריום Frost בן 3 קומות ומסעדות מעולות.'
+          }
+        ]
+      },
+      'ny-manhattan': {
+        title: 'מנהטן: סנטרל פארק, מוזיאון הדינוזאורים וטיימס סקוור',
+        photos: [
+          {
+            url: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=700&auto=format&fit=crop&q=80',
+            title: 'סנטרל פארק וגורדי השחקים',
+            desc: 'מדשאות ענק, שייט סירות משוטים באגם, גני שעשועים מדהימים וגן החיות.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=700&auto=format&fit=crop&q=80',
+            title: 'טיימס סקוור ו-Hard Rock Cafe',
+            desc: 'אורות ניאון ענקיים, מסעדת Hard Rock האהובה וחנות הצעצועים FAO Schwarz.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=700&auto=format&fit=crop&q=80',
+            title: 'מוזיאון הטבע האמריקאי (AMNH)',
+            desc: 'שלדי דינוזאורים עצומים (טי-רקס), לוויתן כחול תלוי באוויר ומתחמי גילוי.'
+          }
+        ]
+      },
+      'ny-kalahari': {
+        title: 'פנסילבניה: ריזורט Kalahari ועולם השוקולד Hershey\'s',
+        photos: [
+          {
+            url: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=700&auto=format&fit=crop&q=80',
+            title: 'פארק המים המקורה הגדול בארה"ב (Kalahari)',
+            desc: 'מתחם מקורה ענק וממוזג בריזורט – עשרות מגלשות, אבובים וגלי מים לכל המשפחה.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1511381939415-e44015466834?w=700&auto=format&fit=crop&q=80',
+            title: 'עולם השוקולד של הרשי (Hershey\'s)',
+            desc: 'רכבת סיור בתוך מפעל השוקולד וסדנה שבה הילדים יוצרים חפיסת שוקולד אישית.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=700&auto=format&fit=crop&q=80',
+            title: 'מפלי Bushkill Falls בפוקונוס',
+            desc: 'גשרוני עץ תלויים בין מפלים שוצפים ביער ירוק ומוצל – טיול קליל וקסום.'
+          }
+        ]
+      },
+      'ny-nature': {
+        title: 'הרי הקטסקילס, שמורת Minnewaska ואגם לייק ג\'ורג\'',
+        photos: [
+          {
+            url: 'https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?w=700&auto=format&fit=crop&q=80',
+            title: 'שמורת Minnewaska State Park',
+            desc: 'אגמים כחולים וצלולים בין צוקים לבנים, מפלים שוצפים ושבילים מישוריים ונוחים.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&auto=format&fit=crop&q=80',
+            title: 'ספינת הקיטור ההיסטורית בלייק ג\'ורג\'',
+            desc: 'שייט בספינת קיטור אמיתית עם גלגל משוטים ומוזיקת עוגב עליזה על מי האגם.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=700&auto=format&fit=crop&q=80',
+            title: 'חוות קטיף פירות יער (Kelder\'s Farm)',
+            desc: 'קטיף פירות יער מתוקים, כריות קפיצה ענקיות, חיות משק ובקתות כפריות.'
+          }
+        ]
+      },
+      'at-salzburg': {
+        title: 'חבל זלצבורג: רכבל Wagraini ומערת הקרח הגדולה בעולם',
+        photos: [
+          {
+            url: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=700&auto=format&fit=crop&q=80',
+            title: 'רכבל Wagraini’s Grafenberg',
+            desc: 'עולים ברכבל לפסגת ההר הירוקה – פארק מתקני עץ ומים, רפסודות בחבל מעל אגם.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?w=700&auto=format&fit=crop&q=80',
+            title: 'מערת הקרח הגדולה בעולם (Eisriesenwelt)',
+            desc: 'מערת קרח תת-קרקעית עצומה בתוך ההר – נכנסים עם עששיות קסומות לארמון קרח.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=700&auto=format&fit=crop&q=80',
+            title: 'מכרות המלח בהאליין (Salzwelten)',
+            desc: 'רכבת כורים קטנה, מגלשות עץ ענקיות ושייט באגם מלח תת-קרקעי מסתורי.'
+          }
+        ]
+      },
+      'at-tyrol': {
+        title: 'חבל טירול: אגם צל-אם-זה, מפלי קרימל וסכרי קפרון',
+        photos: [
+          {
+            url: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=700&auto=format&fit=crop&q=80',
+            title: 'אגם צל-אם-זה (Zeller See)',
+            desc: 'מי טורקיז צלולים מול הרים מושלגים, שייט סירות חשמליות ומדשאות רחצה.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=700&auto=format&fit=crop&q=80',
+            title: 'מפלי קרימל (Krimml) – הגבוהים באירופה',
+            desc: 'עוצמת מים פראית של 380 מטר גובה – הליכה קלה של 15 דקות לרסס המים המרענן.'
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=700&auto=format&fit=crop&q=80',
+            title: 'פארק המים והספא הגדול בעולם (Therme Erding)',
+            desc: 'מתחם טרופי ענק עם עצי דקל אמיתיים, בריכות גלים ו-28 מגלשות מים מדהימות.'
+          }
+        ]
+      }
+    };
+
+    function openPhotoModal(stageKey) {
+      const stage = stagePhotos[stageKey];
+      if (!stage) return;
+
+      document.getElementById('modalTitle').textContent = stage.title;
+      const gallery = document.getElementById('modalGallery');
+      gallery.innerHTML = '';
+
+      stage.photos.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'gallery-card';
+        card.innerHTML = `
+          <img src="${item.url}" alt="${item.title}" loading="lazy">
+          <div class="gallery-card-desc">
+            <strong>${item.title}</strong>
+            ${item.desc}
+          </div>
+        `;
+        gallery.appendChild(card);
+      });
+
+      document.getElementById('photoModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePhotoModal() {
+      document.getElementById('photoModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnBg(event) {
+      if (event.target.id === 'photoModal') {
+        closePhotoModal();
+      }
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closePhotoModal();
+      }
+    });
   </script>
 </body>
 </html>
