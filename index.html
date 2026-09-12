@@ -243,16 +243,23 @@
     }
 
     .destination-hub {
-      margin-bottom: 20px;
+      background: #ffffff;
+      border-radius: var(--radius);
+      padding: 22px 22px 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
     }
 
     .hub-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f1f5f9;
     }
 
     .hub-header h3 {
@@ -1548,196 +1555,6 @@
 
   <div class="container">
 
-    <!-- Flight Alert -->
-    <div id="section-flights" class="flight-alert">
-      <div class="flight-alert-icon">✈️</div>
-      <div class="flight-alert-content">
-        <h4>דיוק הטיסות: טיסות ישירות ומפנקות ללא קונקשנים!</h4>
-        <p>
-          <strong>לפלורידה:</strong> טיסה ישירה של <strong>אל על למיאמי (LY 17/18 בדרימליינר 787)</strong> – המראה ב-00:30 בלילה, הילדים ישנים 9 שעות רצוף ונוחתים ב-06:30 בבוקר במיאמי רעננים!<br>
-          <strong>לניו יורק:</strong> טיסות לילה ישירות (אל על / אמריקן איירליינס / יונייטד) – המראה בחצות, נחיתה ב-05:30 בבוקר.<br>
-          <strong>לאוסטריה:</strong> טיסה ישירה קצרצרה של 3.5 שעות בלבד ללא ג'ט-לג.<br>
-          <strong>לקוריאה:</strong> טיסה ישירה לסיאול (11.5 שעות) בבואינג 787.
-        </p>
-        <div class="flight-links-wrapper">
-          <div class="flight-links-title">
-            <span>🔍 קישורים ישירים ומסוננים ל-Google Flights:</span>
-            <span style="background: #2563eb; color: white; padding: 2px 9px; border-radius: 12px; font-size: 0.74rem; margin-right: 6px; font-weight: 700;">👥 2 מבוגרים + 2 ילדים (בני 5 ו-7)</span>
-            <span style="background: #0284c7; color: white; padding: 2px 9px; border-radius: 12px; font-size: 0.74rem; margin-right: 4px; font-weight: 700;">📅 1–18 באוגוסט 2027</span>
-            <span style="background: #10b981; color: white; padding: 2px 9px; border-radius: 12px; font-size: 0.74rem; margin-right: 4px; font-weight: 700;">✈️ טיסות ישירות</span>
-          </div>
-          <div class="flight-links-grid">
-            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MIA%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
-              🛫 פלורידה: TLV ⇄ MIA (אל על ישיר) ↗
-            </a>
-            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20JFK%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
-              🛫 ניו יורק: TLV ⇄ JFK (אמריקן / אל על ישיר) ↗
-            </a>
-            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20EWR%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
-              🛫 ניו יורק: TLV ⇄ EWR (יונייטד / אל על ישיר) ↗
-            </a>
-            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MUC%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
-              🛫 אוסטריה: TLV ⇄ MUC (לופטהנזה / אל על ישיר) ↗
-            </a>
-            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20VIE%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
-              🛫 אוסטריה: TLV ⇄ VIE (אוסטריאן / אל על ישיר) ↗
-            </a>
-            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill" style="background: #fefce8; border-color: #fde047; color: #854d0e;">
-              🛫 קוריאה: TLV ⇄ ICN (קוריאן אייר / אל על ישיר) ↗
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Formula Banner -->
-    <div id="section-formula" class="formula-card">
-      <div class="formula-header">
-        <h2>✨ עקרונות הברזל המעודכנים (דיוק לפי המשוב של גל)</h2>
-      </div>
-      <div class="formula-grid">
-        <div class="formula-item safe-kids" style="border-color: #10b981; background: #ecfdf5;">
-          <strong>🎯 עקרון גל: אטרקציית עוגן 1 בלבד ביום!</strong>
-          <span>אפס דחיסות. פעילות ממוקדת אחת בבוקר (עד 3 שעות), ואחה"צ נטו בריכה, מנוחה ושקט.</span>
-        </div>
-        <div class="formula-item safe-kids">
-          <strong>👶 אפס אטרקציות לילה</strong>
-          <span>הכל ביום ובשעות אחה"צ המוקדמות. במיטה ב-20:00–20:30!</span>
-        </div>
-        <div class="formula-item highlight-purple">
-          <strong>🚕 מונית אוטונומית (Waymo)</strong>
-          <span>נסיעה ברכב ללא נהג בכלל – חוויה עתידנית לכל החיים (במיאמי!).</span>
-        </div>
-        <div class="formula-item highlight">
-          <strong>🚀 שיגור חלל אמיתי ביום</strong>
-          <span>צפייה בטיל Falcon 9 של SpaceX ממריא בשעות היום/אחה"צ.</span>
-        </div>
-        <div class="formula-item">
-          <strong>🌊 פארק מים עולמי</strong>
-          <span>Volcano Bay / Kalahari (הגדול בארה"ב) / Erding.</span>
-        </div>
-        <div class="formula-item">
-          <strong>🚗 נסיעות קצרות בלבד</strong>
-          <span>מעברי לינה עד שעה וחצי. נסיעות יומיות: 15–30 דק'.</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Exact Price Table -->
-    <div id="section-costs" class="comparison-section">
-      <div class="section-title">
-        <span>💰 השוואת עלויות מדויקת ומאומתת (כולל טיסות ישירות ומזוודות)</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">מחירי שיא אוגוסט למשפחה של 4 נפשות</span>
-      </div>
-      <table>
-        <thead>
-          <tr>
-            <th>סעיף תקציב</th>
-            <th>
-              🚀 פלורידה (טיסה ישירה מיאמי אל על)<br>
-              <button class="table-jump-btn" onclick="showTab('tab-florida', true)">צפה במסלול 👈</button>
-            </th>
-            <th>
-              🏙️ ארה"ב (טיסה ישירה ניו יורק)<br>
-              <button class="table-jump-btn" onclick="showTab('tab-ny-pa', true)">צפה במסלול 👈</button>
-            </th>
-            <th>
-              🇦🇹 אוסטריה (טיסה ישירה מינכן)<br>
-              <button class="table-jump-btn" onclick="showTab('tab-austria', true)">צפה במסלול 👈</button>
-            </th>
-            <th style="background: #fefce8; border-bottom: 2px solid #eab308;">
-              🇰🇷 דרום קוריאה (טיסה ישירה סיאול)<br>
-              <button class="table-jump-btn" style="background: #fef08a; color: #854d0e; border-color: #fde047;" onclick="showTab('tab-korea', true)">צפה במסלול 👈</button>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>טיסות ישירות (4 נפשות)</strong><br><span style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">2 מבוגרים + 2 ילדים • 1–18 באוגוסט</span></td>
-            <td>
-              <strong>$5,800</strong> (אל על Dreamliner ישיר, ~$1,450 לאדם)<br>
-              <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MIA%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="table-flight-link">🔍 פתח חיפוש טיסה לפלורידה ↗</a>
-            </td>
-            <td>
-              <strong>$5,400</strong> (אמריקן/אל על ישיר, ~$1,350 לאדם)<br>
-              <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20JFK%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="table-flight-link">🔍 פתח חיפוש טיסה לניו יורק ↗</a>
-            </td>
-            <td>
-              <strong>$3,000</strong> (טיסה ישירה 3.5 שעות, ~$750 לאדם)<br>
-              <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MUC%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="table-flight-link">🔍 פתח חיפוש טיסה לאוסטריה ↗</a>
-            </td>
-            <td>
-              <strong>$4,800</strong> (טיסה ישירה לסיאול, ~$1,200 לאדם)<br>
-              <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="table-flight-link" style="color: #854d0e;">🔍 פתח חיפוש טיסה לקוריאה ↗</a>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>לינה (17 לילות)</strong></td>
-            <td><strong>$4,100</strong> (וילה בריזורט באורלנדו + מלונות חוף)</td>
-            <td><strong>$5,280</strong> (מנהטן + ריזורט Kalahari + בקתות)</td>
-            <td><strong>$4,240</strong> (מלונות דירות 4 כוכבים + Erding)</td>
-            <td><strong>$3,600</strong> (מלונות משפחתיים 4-5★ בסיאול וריזורט בג'ג'ו)</td>
-          </tr>
-          <tr>
-            <td><strong>השכרת רכב ותחבורה</strong></td>
-            <td><strong>$1,650</strong> (מיניוואן ל-17 יום, ביטוח מלא)</td>
-            <td><strong>$1,350</strong> (SUV ל-14 יום, ללא מנהטן)</td>
-            <td><strong>$1,450</strong> (סטיישן/SUV ל-17 יום, ביטוח מלא)</td>
-            <td><strong>$1,100</strong> (רכבות מהירות KTX + טיסות פנים לג'ג'ו + רכב שכור)</td>
-          </tr>
-          <tr>
-            <td><strong>דלק, כבישי אגרה וחניות</strong></td>
-            <td><strong>$450</strong> (SunPass, חניות)</td>
-            <td><strong>$400</strong> (E-ZPass, דלק)</td>
-            <td><strong>$300</strong> (מדבקת אוטוסטרדה, דלק)</td>
-            <td><strong>$150</strong> (רכבות KTX בעיר, רכב רק בג'ג'ו)</td>
-          </tr>
-          <tr>
-            <td><strong>כרטיסים ואטרקציות</strong></td>
-            <td><strong>$2,650</strong> (דיסני, Volcano Bay, חלל, דולפינים, Waymo)</td>
-            <td><strong>$750</strong> (Kalahari כלול במלון! הרשי, מוזיאונים)</td>
-            <td><strong>$835</strong> (כרטיס זלצבורגלנד, מערת קרח, Erding)</td>
-            <td><strong>$1,400</strong> (Lotte World, Everland ופנדות, לגולנד, אקווריום)</td>
-          </tr>
-          <tr class="total-row">
-            <td><strong>סה"כ עלות בסיס ($)</strong></td>
-            <td>$14,650</td>
-            <td>$13,180</td>
-            <td>$9,825</td>
-            <td style="color: #0f172a; font-weight: 800;">$11,050</td>
-          </tr>
-          <tr class="total-row-ils">
-            <td><strong>סה"כ בשקלים (₪)</strong></td>
-            <td>~55,000 ₪</td>
-            <td>~50,000 ₪</td>
-            <td>~37,000 ₪</td>
-            <td style="color: #b45309; font-weight: 800;">~42,000 ₪</td>
-          </tr>
-          <tr style="background: #fdf4ff; border-top: 2px dashed #d946ef;">
-            <td><strong>👑 אופציה: אוסטריה + 4 לילות בדאכשטיינקוניג</strong></td>
-            <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
-            <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
-            <td style="color: #701a75; font-weight: 700;"><strong>$12,200 (~46,000 ₪)</strong><br><span style="font-size: 0.76rem; font-weight: normal; color: #86198f;">4 לילות 5★ אולטרה הכל-כלול + 13 בדירות יוקרה (חוסך אוכל)</span></td>
-            <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
-          </tr>
-          <tr style="background: #fae8ff;">
-            <td><strong>👑 אופציה: אוסטריה שבוע מלא בדאכשטיינקוניג</strong></td>
-            <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
-            <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
-            <td style="color: #701a75; font-weight: 700;"><strong>$15,200 (~57,000 ₪)</strong><br><span style="font-size: 0.76rem; font-weight: normal; color: #86198f;">7 לילות 5★ אולטרה הכל-כלול + 10 ב-Kinderhotel/בקתה</span></td>
-            <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
-          </tr>
-          <tr style="background: #f8fafc;">
-            <td><strong>ניווט ישיר לתוכנית יומית</strong></td>
-            <td><button class="table-jump-btn" onclick="showTab('tab-florida', true)">פתיחת פלורידה 👈</button></td>
-            <td><button class="table-jump-btn" onclick="showTab('tab-ny-pa', true)">פתיחת ארה"ב 👈</button></td>
-            <td><button class="table-jump-btn" onclick="showTab('tab-austria', true)">פתיחת אוסטריה 👈</button></td>
-            <td><button class="table-jump-btn" style="background: #fef08a; color: #854d0e; border-color: #fde047;" onclick="showTab('tab-korea', true)">פתיחת קוריאה 👈</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
     <!-- Tabs Navigation & Destination Hub -->
     <div id="itinerarySection" class="tabs-container">
 
@@ -2455,6 +2272,196 @@
               <div class="day-desc">אריזה נינוחה, נסיעה קלה לנמל התעופה אינצ'ון (ICN). עלייה לטיסה הישירה הביתה. נחיתה בישראל ביום 18 מלאי חוויות וזיכרונות בלתי נשכחים!</div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exact Price Table -->
+    <div id="section-costs" class="comparison-section">
+      <div class="section-title">
+        <span>💰 השוואת עלויות מדויקת ומאומתת (כולל טיסות ישירות ומזוודות)</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">מחירי שיא אוגוסט למשפחה של 4 נפשות</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>סעיף תקציב</th>
+            <th>
+              🚀 פלורידה (טיסה ישירה מיאמי אל על)<br>
+              <button class="table-jump-btn" onclick="showTab('tab-florida', true)">צפה במסלול 👈</button>
+            </th>
+            <th>
+              🏙️ ארה"ב (טיסה ישירה ניו יורק)<br>
+              <button class="table-jump-btn" onclick="showTab('tab-ny-pa', true)">צפה במסלול 👈</button>
+            </th>
+            <th>
+              🇦🇹 אוסטריה (טיסה ישירה מינכן)<br>
+              <button class="table-jump-btn" onclick="showTab('tab-austria', true)">צפה במסלול 👈</button>
+            </th>
+            <th style="background: #fefce8; border-bottom: 2px solid #eab308;">
+              🇰🇷 דרום קוריאה (טיסה ישירה סיאול)<br>
+              <button class="table-jump-btn" style="background: #fef08a; color: #854d0e; border-color: #fde047;" onclick="showTab('tab-korea', true)">צפה במסלול 👈</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>טיסות ישירות (4 נפשות)</strong><br><span style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">2 מבוגרים + 2 ילדים • 1–18 באוגוסט</span></td>
+            <td>
+              <strong>$5,800</strong> (אל על Dreamliner ישיר, ~$1,450 לאדם)<br>
+              <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MIA%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="table-flight-link">🔍 פתח חיפוש טיסה לפלורידה ↗</a>
+            </td>
+            <td>
+              <strong>$5,400</strong> (אמריקן/אל על ישיר, ~$1,350 לאדם)<br>
+              <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20JFK%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="table-flight-link">🔍 פתח חיפוש טיסה לניו יורק ↗</a>
+            </td>
+            <td>
+              <strong>$3,000</strong> (טיסה ישירה 3.5 שעות, ~$750 לאדם)<br>
+              <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MUC%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="table-flight-link">🔍 פתח חיפוש טיסה לאוסטריה ↗</a>
+            </td>
+            <td>
+              <strong>$4,800</strong> (טיסה ישירה לסיאול, ~$1,200 לאדם)<br>
+              <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="table-flight-link" style="color: #854d0e;">🔍 פתח חיפוש טיסה לקוריאה ↗</a>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>לינה (17 לילות)</strong></td>
+            <td><strong>$4,100</strong> (וילה בריזורט באורלנדו + מלונות חוף)</td>
+            <td><strong>$5,280</strong> (מנהטן + ריזורט Kalahari + בקתות)</td>
+            <td><strong>$4,240</strong> (מלונות דירות 4 כוכבים + Erding)</td>
+            <td><strong>$3,600</strong> (מלונות משפחתיים 4-5★ בסיאול וריזורט בג'ג'ו)</td>
+          </tr>
+          <tr>
+            <td><strong>השכרת רכב ותחבורה</strong></td>
+            <td><strong>$1,650</strong> (מיניוואן ל-17 יום, ביטוח מלא)</td>
+            <td><strong>$1,350</strong> (SUV ל-14 יום, ללא מנהטן)</td>
+            <td><strong>$1,450</strong> (סטיישן/SUV ל-17 יום, ביטוח מלא)</td>
+            <td><strong>$1,100</strong> (רכבות מהירות KTX + טיסות פנים לג'ג'ו + רכב שכור)</td>
+          </tr>
+          <tr>
+            <td><strong>דלק, כבישי אגרה וחניות</strong></td>
+            <td><strong>$450</strong> (SunPass, חניות)</td>
+            <td><strong>$400</strong> (E-ZPass, דלק)</td>
+            <td><strong>$300</strong> (מדבקת אוטוסטרדה, דלק)</td>
+            <td><strong>$150</strong> (רכבות KTX בעיר, רכב רק בג'ג'ו)</td>
+          </tr>
+          <tr>
+            <td><strong>כרטיסים ואטרקציות</strong></td>
+            <td><strong>$2,650</strong> (דיסני, Volcano Bay, חלל, דולפינים, Waymo)</td>
+            <td><strong>$750</strong> (Kalahari כלול במלון! הרשי, מוזיאונים)</td>
+            <td><strong>$835</strong> (כרטיס זלצבורגלנד, מערת קרח, Erding)</td>
+            <td><strong>$1,400</strong> (Lotte World, Everland ופנדות, לגולנד, אקווריום)</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>סה"כ עלות בסיס ($)</strong></td>
+            <td>$14,650</td>
+            <td>$13,180</td>
+            <td>$9,825</td>
+            <td style="color: #0f172a; font-weight: 800;">$11,050</td>
+          </tr>
+          <tr class="total-row-ils">
+            <td><strong>סה"כ בשקלים (₪)</strong></td>
+            <td>~55,000 ₪</td>
+            <td>~50,000 ₪</td>
+            <td>~37,000 ₪</td>
+            <td style="color: #b45309; font-weight: 800;">~42,000 ₪</td>
+          </tr>
+          <tr style="background: #fdf4ff; border-top: 2px dashed #d946ef;">
+            <td><strong>👑 אופציה: אוסטריה + 4 לילות בדאכשטיינקוניג</strong></td>
+            <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
+            <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
+            <td style="color: #701a75; font-weight: 700;"><strong>$12,200 (~46,000 ₪)</strong><br><span style="font-size: 0.76rem; font-weight: normal; color: #86198f;">4 לילות 5★ אולטרה הכל-כלול + 13 בדירות יוקרה (חוסך אוכל)</span></td>
+            <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
+          </tr>
+          <tr style="background: #fae8ff;">
+            <td><strong>👑 אופציה: אוסטריה שבוע מלא בדאכשטיינקוניג</strong></td>
+            <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
+            <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
+            <td style="color: #701a75; font-weight: 700;"><strong>$15,200 (~57,000 ₪)</strong><br><span style="font-size: 0.76rem; font-weight: normal; color: #86198f;">7 לילות 5★ אולטרה הכל-כלול + 10 ב-Kinderhotel/בקתה</span></td>
+            <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
+          </tr>
+          <tr style="background: #f8fafc;">
+            <td><strong>ניווט ישיר לתוכנית יומית</strong></td>
+            <td><button class="table-jump-btn" onclick="showTab('tab-florida', true)">פתיחת פלורידה 👈</button></td>
+            <td><button class="table-jump-btn" onclick="showTab('tab-ny-pa', true)">פתיחת ארה"ב 👈</button></td>
+            <td><button class="table-jump-btn" onclick="showTab('tab-austria', true)">פתיחת אוסטריה 👈</button></td>
+            <td><button class="table-jump-btn" style="background: #fef08a; color: #854d0e; border-color: #fde047;" onclick="showTab('tab-korea', true)">פתיחת קוריאה 👈</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Flight Alert -->
+    <div id="section-flights" class="flight-alert">
+      <div class="flight-alert-icon">✈️</div>
+      <div class="flight-alert-content">
+        <h4>דיוק הטיסות: טיסות ישירות ומפנקות ללא קונקשנים!</h4>
+        <p>
+          <strong>לפלורידה:</strong> טיסה ישירה של <strong>אל על למיאמי (LY 17/18 בדרימליינר 787)</strong> – המראה ב-00:30 בלילה, הילדים ישנים 9 שעות רצוף ונוחתים ב-06:30 בבוקר במיאמי רעננים!<br>
+          <strong>לניו יורק:</strong> טיסות לילה ישירות (אל על / אמריקן איירליינס / יונייטד) – המראה בחצות, נחיתה ב-05:30 בבוקר.<br>
+          <strong>לאוסטריה:</strong> טיסה ישירה קצרצרה של 3.5 שעות בלבד ללא ג'ט-לג.<br>
+          <strong>לקוריאה:</strong> טיסה ישירה לסיאול (11.5 שעות) בבואינג 787.
+        </p>
+        <div class="flight-links-wrapper">
+          <div class="flight-links-title">
+            <span>🔍 קישורים ישירים ומסוננים ל-Google Flights:</span>
+            <span style="background: #2563eb; color: white; padding: 2px 9px; border-radius: 12px; font-size: 0.74rem; margin-right: 6px; font-weight: 700;">👥 2 מבוגרים + 2 ילדים (בני 5 ו-7)</span>
+            <span style="background: #0284c7; color: white; padding: 2px 9px; border-radius: 12px; font-size: 0.74rem; margin-right: 4px; font-weight: 700;">📅 1–18 באוגוסט 2027</span>
+            <span style="background: #10b981; color: white; padding: 2px 9px; border-radius: 12px; font-size: 0.74rem; margin-right: 4px; font-weight: 700;">✈️ טיסות ישירות</span>
+          </div>
+          <div class="flight-links-grid">
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MIA%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
+              🛫 פלורידה: TLV ⇄ MIA (אל על ישיר) ↗
+            </a>
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20JFK%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
+              🛫 ניו יורק: TLV ⇄ JFK (אמריקן / אל על ישיר) ↗
+            </a>
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20EWR%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
+              🛫 ניו יורק: TLV ⇄ EWR (יונייטד / אל על ישיר) ↗
+            </a>
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MUC%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
+              🛫 אוסטריה: TLV ⇄ MUC (לופטהנזה / אל על ישיר) ↗
+            </a>
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20VIE%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
+              🛫 אוסטריה: TLV ⇄ VIE (אוסטריאן / אל על ישיר) ↗
+            </a>
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill" style="background: #fefce8; border-color: #fde047; color: #854d0e;">
+              🛫 קוריאה: TLV ⇄ ICN (קוריאן אייר / אל על ישיר) ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formula Banner -->
+    <div id="section-formula" class="formula-card">
+      <div class="formula-header">
+        <h2>✨ עקרונות הברזל המעודכנים (דיוק לפי המשוב של גל)</h2>
+      </div>
+      <div class="formula-grid">
+        <div class="formula-item safe-kids" style="border-color: #10b981; background: #ecfdf5;">
+          <strong>🎯 עקרון גל: אטרקציית עוגן 1 בלבד ביום!</strong>
+          <span>אפס דחיסות. פעילות ממוקדת אחת בבוקר (עד 3 שעות), ואחה"צ נטו בריכה, מנוחה ושקט.</span>
+        </div>
+        <div class="formula-item safe-kids">
+          <strong>👶 אפס אטרקציות לילה</strong>
+          <span>הכל ביום ובשעות אחה"צ המוקדמות. במיטה ב-20:00–20:30!</span>
+        </div>
+        <div class="formula-item highlight-purple">
+          <strong>🚕 מונית אוטונומית (Waymo)</strong>
+          <span>נסיעה ברכב ללא נהג בכלל – חוויה עתידנית לכל החיים (במיאמי!).</span>
+        </div>
+        <div class="formula-item highlight">
+          <strong>🚀 שיגור חלל אמיתי ביום</strong>
+          <span>צפייה בטיל Falcon 9 של SpaceX ממריא בשעות היום/אחה"צ.</span>
+        </div>
+        <div class="formula-item">
+          <strong>🌊 פארק מים עולמי</strong>
+          <span>Volcano Bay / Kalahari (הגדול בארה"ב) / Erding.</span>
+        </div>
+        <div class="formula-item">
+          <strong>🚗 נסיעות קצרות בלבד</strong>
+          <span>מעברי לינה עד שעה וחצי. נסיעות יומיות: 15–30 דק'.</span>
         </div>
       </div>
     </div>
