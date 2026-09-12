@@ -106,7 +106,7 @@
 
     .formula-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 14px;
     }
 
@@ -122,15 +122,25 @@
       border-top-color: #eab308;
     }
 
+    .formula-item.highlight-purple {
+      background: #faf5ff;
+      border-top-color: #8b5cf6;
+    }
+
+    .formula-item.safe-kids {
+      background: #f0fdf4;
+      border-top-color: #22c55e;
+    }
+
     .formula-item strong {
       display: block;
       color: #0f172a;
       margin-bottom: 4px;
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
 
     .formula-item span {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
     }
 
@@ -205,6 +215,7 @@
     .badge-win { background: #dcfce7; color: #15803d; }
     .badge-star { background: #dbeafe; color: #1d4ed8; }
     .badge-fire { background: #ffedd5; color: #c2410c; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
 
     /* Tabs for Deep Dive */
     .tabs-container {
@@ -320,6 +331,11 @@
       border-color: #fde68a;
     }
 
+    .day-card.highlight-purple {
+      background: #faf5ff;
+      border-color: #e9d5ff;
+    }
+
     .day-title {
       font-weight: 700;
       font-size: 0.95rem;
@@ -423,24 +439,28 @@
     <!-- Formula Banner -->
     <div class="formula-card">
       <div class="formula-header">
-        <h2>✨ הנוסחה המנצחת של גל: "טבע + עיר + פארק מים + שיא של פעם בחיים"</h2>
+        <h2>✨ עקרונות הברזל המעודכנים (מותאם בול לילדים קטנים)</h2>
       </div>
       <div class="formula-grid">
-        <div class="formula-item">
-          <strong>🏙️ עיר תוססת</strong>
-          <span>סנטרל פארק וטיימס סקוור / מיאמי ואוקיינוס / זלצבורג ומינכן.</span>
+        <div class="formula-item safe-kids">
+          <strong>👶 אפס אטרקציות לילה</strong>
+          <span>הכל ביום ובשעות אחה"צ המוקדמות. במיטה ב-20:00–20:30!</span>
         </div>
-        <div class="formula-item">
-          <strong>🌲 טבע פעיל מותאם</strong>
-          <span>אגמים, מפלים, חוות קטיף, קניוני מים ומעיינות חמים.</span>
+        <div class="formula-item highlight-purple">
+          <strong>🚕 מונית אוטונומית (Waymo)</strong>
+          <span>נסיעה ברכב ללא נהג בכלל – חוויה עתידנית לכל החיים (במיאמי!).</span>
+        </div>
+        <div class="formula-item highlight">
+          <strong>🚀 שיגור חלל אמיתי ביום</strong>
+          <span>צפייה בטיל Falcon 9 של SpaceX ממריא בשעות היום/אחה"צ.</span>
         </div>
         <div class="formula-item">
           <strong>🌊 פארק מים עולמי</strong>
-          <span>Volcano Bay / Kalahari Resort (הגדול בארה"ב) / Therme Erding.</span>
+          <span>Volcano Bay / Kalahari (הגדול בארה"ב) / Erding.</span>
         </div>
-        <div class="formula-item highlight">
-          <strong>🚀 חוויית Once in a Lifetime</strong>
-          <span>שיגור רקטה לחלל + שייט מים זוהרים / עולם השוקולד / מערת הקרח הגדולה בעולם.</span>
+        <div class="formula-item">
+          <strong>🚗 נסיעות קצרות בלבד</strong>
+          <span>מעברי לינה עד שעה וחצי. נסיעות יומיות: 15–30 דק'.</span>
         </div>
       </div>
     </div>
@@ -449,13 +469,13 @@
     <div class="comparison-section">
       <div class="section-title">
         <span>💰 השוואת עלויות מדויקת (רמת הסעיף ל-4 נפשות)</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">הערכה מבוססת מחירי שיא אוגוסט</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">כולל טיסות, לינה, רכב וכרטיסים</span>
       </div>
       <table>
         <thead>
           <tr>
             <th>סעיף תקציב</th>
-            <th>🚀 פלורידה (חלל, זוהר ופארקים)</th>
+            <th>🚀 פלורידה (חלל, Waymo ופארקים)</th>
             <th>🏙️ ארה"ב (ניו יורק, פנסילבניה, קטסקילס)</th>
             <th>🇦🇹 אוסטריה (זלצבורג, טירול וארדינג)</th>
           </tr>
@@ -487,13 +507,13 @@
           </tr>
           <tr>
             <td><strong>כרטיסים ואטרקציות</strong></td>
-            <td><strong>$2,700</strong> (דיסני, Volcano Bay, חלל, זוהר)</td>
+            <td><strong>$2,650</strong> (דיסני, Volcano Bay, חלל, דולפינים, Waymo)</td>
             <td><strong>$750</strong> (Kalahari כלול במלון! הרשי, מוזיאונים)</td>
             <td><strong>$835</strong> (כרטיס זלצבורגלנד, מערת קרח, Erding)</td>
           </tr>
           <tr class="total-row">
             <td><strong>סה"כ עלות בסיס ($)</strong></td>
-            <td>$14,280</td>
+            <td>$14,230</td>
             <td>$13,180</td>
             <td>$9,825</td>
           </tr>
@@ -510,16 +530,16 @@
     <!-- Tabs Navigation -->
     <div class="tabs-container">
       <div class="tabs-nav">
-        <button class="tab-btn active" onclick="showTab('tab-florida')">🚀 פלורידה (פירוט יום-יומי)</button>
-        <button class="tab-btn" onclick="showTab('tab-ny-pa')">🏙️ ארה"ב: ניו יורק ופנסילבניה (פירוט)</button>
-        <button class="tab-btn" onclick="showTab('tab-austria')">🇦🇹 אוסטריה: 2 בסיסים וקרח (פירוט)</button>
+        <button class="tab-btn active" onclick="showTab('tab-florida')">🚀 פלורידה: חלל, Waymo ופארקים</button>
+        <button class="tab-btn" onclick="showTab('tab-ny-pa')">🏙️ ארה"ב: מנהטן, פנסילבניה וקטסקילס</button>
+        <button class="tab-btn" onclick="showTab('tab-austria')">🇦🇹 אוסטריה: 2 בסיסים וקרח</button>
       </div>
 
       <!-- Tab 1: Florida Day-by-Day -->
       <div id="tab-florida" class="tab-content active">
-        <h3 style="margin-bottom: 6px;">🚀 פלורידה – "שיגור חלל אמיתי, מים זוהרים בחושך והפארקים הטובים בעולם"</h3>
+        <h3 style="margin-bottom: 6px;">🚀 פלורידה – "שיגור חלל ביום, מונית אוטונומית והפארקים הטובים בעולם"</h3>
         <p style="color: var(--text-muted); margin-bottom: 24px;">
-          3 מוקדי לינה בלבד: חוף החלל (3 לילות), וילה פרטית באורלנדו (8 לילות), מיאמי (5 לילות).
+          מותאם בול לילדים: <strong>אפס אטרקציות לילה</strong>, נסיעות קצרות, ובמיטה מוקדם!
         </p>
 
         <!-- Block 1 -->
@@ -535,16 +555,16 @@
               <div class="day-desc">איסוף מיניוואן משדה התעופה, נסיעה קלה מזרחה לקוקואה ביץ', התאקלמות במלון על החוף.</div>
             </div>
             <div class="day-card">
-              <div class="day-title"><span>יום 2: מרכז החלל קנדי (Kennedy Space Center)</span><span class="drive-tag">20 דק' נסיעה</span></div>
-              <div class="day-desc">מעבורת החלל אטלנטיס, רקטת סטורן 5 האמיתית, מפגש עם אסטרונאוט ומתחמי ילדים אינטראקטיביים.</div>
+              <div class="day-title"><span>יום 2: מרכז החלל קנדי (Kennedy Space Center) – בוקר</span><span class="drive-tag">20 דק' נסיעה</span></div>
+              <div class="day-desc">מעבורת החלל אטלנטיס, רקטת סטורן 5, מתחם Planet Play המקורה והממוזג (להיט לגיל 5 ו-7). חזרה למלון ומנוחה ב-15:00.</div>
             </div>
             <div class="day-card highlight">
-              <div class="day-title"><span>יום 3: חוף הים + שייט מים זוהרים בחושך (Bioluminescence)</span><span class="drive-tag">35 דק' נסיעה</span></div>
-              <div class="day-desc">בוקר רגוע בחוף. בלילה: שייט מוגן בלגונת Merritt Island – המים זוהרים בכחול-ניאון בכל תנועה (שיא עולמי באוגוסט!).</div>
+              <div class="day-title"><span>יום 3 (שעות הבוקר/אחה"צ): ספארי סירות לדולפינים ופרות ים</span><span class="drive-tag">25 דק' נסיעה</span></div>
+              <div class="day-desc">במקום שייט לילה חשוך ומפחיד – שייט יום שקט ומרתק בנהר Banana River: צפייה בדולפינים שקופצים ליד הסירה ובפרות ים ענקיות (Manatees).</div>
             </div>
             <div class="day-card highlight">
-              <div class="day-title"><span>יום 4: צפייה בשיגור רקטת SpaceX ומעבר לאורלנדו</span><span class="drive-tag transit">50 דק' מעבר</span></div>
-              <div class="day-desc">צפייה בשיגור רקטה מחוף הים (משגרים כל 3–4 ימים). בצהריים נסיעה קצרה של 50 דקות לווילה באורלנדו.</div>
+              <div class="day-title"><span>יום 4: צפייה בשיגור רקטת SpaceX (שעות היום) ומעבר לאורלנדו</span><span class="drive-tag transit">50 דק' מעבר</span></div>
+              <div class="day-desc">צפייה בטיל Falcon 9 ממריא בשעות היום/אחה"צ מחוף הים. בצהריים נסיעה קצרה של 50 דקות לווילה באורלנדו.</div>
             </div>
           </div>
         </div>
@@ -554,32 +574,32 @@
           <div class="block-header">
             <span class="block-badge">מוקד 2</span>
             <span class="block-title">אורלנדו – וילה פרטית עם בריכה (8 לילות)</span>
-            <span class="block-meta">וילה 4 חדרים בריזורט • נסיעות יומיות: 15–35 דק'</span>
+            <span class="block-meta">וילה בריזורט • נסיעות יומיות: 15–30 דק'</span>
           </div>
           <div class="day-list">
             <div class="day-card">
               <div class="day-title"><span>יום 5: יום בריכה ומנוחה + הצטיידות ב-Target</span><span class="drive-tag">10 דק' נסיעה</span></div>
-              <div class="day-desc">התרעננות בבריכה הפרטית, קניות ב-Target, ארוחת ערב ב-Cheesecake Factory (קניון Millenia).</div>
+              <div class="day-desc">התרעננות בבריכה הפרטית, קניות ב-Target, ארוחת ערב מוקדמת (18:00) ב-Cheesecake Factory (קניון Millenia).</div>
             </div>
             <div class="day-card highlight">
               <div class="day-title"><span>יום 6: פארק המים Volcano Bay (יוניברסל)</span><span class="drive-tag">20 דק' נסיעה</span></div>
-              <div class="day-desc">פארק המים היפה בעולם סביב הר געש ענק – נהר אבובים, מגלשות קסומות וחוף חולי עם גלים.</div>
+              <div class="day-desc">פארק המים היפה בעולם: מגיעים בפתיחה (09:00), נהר אבובים וחוף חולי סביב הר געש ענק. חזרה ב-15:00 למנוחה.</div>
             </div>
             <div class="day-card">
               <div class="day-title"><span>יום 7: יום רגוע בווילה + מתחם Disney Springs</span><span class="drive-tag">15 דק' נסיעה</span></div>
-              <div class="day-desc">בריכה בבוקר. אחה"צ שיטוט בין חנויות לגו הענקיות, מופעי רחוב ומסעדות מיוחדות.</div>
+              <div class="day-desc">בריכה בבוקר. אחה"צ שיטוט בין חנויות לגו הענקיות ומופעי רחוב צבעוניים.</div>
             </div>
             <div class="day-card highlight">
-              <div class="day-title"><span>יום 8: דיסני Magic Kingdom – הקסם הקלאסי</span><span class="drive-tag">25 דק' נסיעה</span></div>
-              <div class="day-desc">פיטר פן, רכבת שבעת הגמדים, טירת סינדרלה ומופע הזיקוקים המרהיב בלילה (מותאם בול לבני 5 ו-7).</div>
+              <div class="day-title"><span>יום 8: דיסני Magic Kingdom – יום קסם עד 18:30</span><span class="drive-tag">25 דק' נסיעה</span></div>
+              <div class="day-desc">פיטר פן, רכבת שבעת הגמדים ומצעד הדמויות. יוצאים מוקדם ב-18:30 לפני עומסי הלילה – במיטה מוקדם!</div>
             </div>
             <div class="day-card">
               <div class="day-title"><span>יום 9: טבע ומעיינות: Wekiwa Springs State Park</span><span class="drive-tag">35 דק' נסיעה</span></div>
-              <div class="day-desc">שחייה במעיינות טבעיים של מים מתוקים וצלולים לחלוטין (22 מעלות קבוע) בלב יער ירוק.</div>
+              <div class="day-desc">שחייה במעיינות טבעיים של מים מתוקים וצלולים לחלוטין (22 מעלות קבוע) בלב יער ירוק ומוצל.</div>
             </div>
             <div class="day-card highlight">
               <div class="day-title"><span>יום 10: דיסני Animal Kingdom</span><span class="drive-tag">20 דק' נסיעה</span></div>
-              <div class="day-desc">ספארי ג'יפים בין אריות ופילים, עולם האוואטר ומופע מלך האריות המרהיב.</div>
+              <div class="day-desc">ספארי ג'יפים בין אריות ופילים, עולם פנדורה ומופע מלך האריות המרהיב באולם ממוזג.</div>
             </div>
             <div class="day-card">
               <div class="day-title"><span>יום 11: Legoland Florida & Peppa Pig Park</span><span class="drive-tag">45 דק' נסיעה</span></div>
@@ -587,7 +607,7 @@
             </div>
             <div class="day-card">
               <div class="day-title"><span>יום 12: מעבר למיאמי ברכבת ה-Brightline המפנקת</span><span class="drive-tag transit">3.5 שעות רכבת יוקרתית</span></div>
-              <div class="day-desc">עולים על רכבת ה-Brightline המהירה משדה התעופה באורלנדו ישר למרכז מיאמי – WiFi, עור, נשנושים, 0 עייפות.</div>
+              <div class="day-desc">עולים על רכבת ה-Brightline המהירה מאורלנדו ישר למרכז מיאמי – WiFi, עור, נשנושים, 0 עייפות נהיגה.</div>
             </div>
           </div>
         </div>
@@ -596,29 +616,29 @@
         <div class="itinerary-block">
           <div class="block-header">
             <span class="block-badge">מוקד 3</span>
-            <span class="block-title">מיאמי ופורט לודרדייל (5 לילות)</span>
-            <span class="block-meta">מלון חוף משפחתי • שמש, אוקיינוס וטבע פראי</span>
+            <span class="block-title">מיאמי – עיר, חוף ומונית אוטונומית (5 לילות)</span>
+            <span class="block-meta">מלון חוף משפחתי • שמש, טכנולוגיה וטבע</span>
           </div>
           <div class="day-list">
-            <div class="day-card">
-              <div class="day-title"><span>יום 13: חוף האוקיינוס וטיילת מיאמי + Hard Rock Cafe</span><span class="drive-tag">15 דק' נסיעה</span></div>
-              <div class="day-desc">רחצה בחוף החם, שיטוט במרינה של Bayside וארוחת צהריים ב-Hard Rock Cafe.</div>
+            <div class="day-card highlight-purple">
+              <div class="day-title"><span>יום 13: נסיעה במונית אוטונומית (Waymo) + Hard Rock Cafe</span><span class="drive-tag">חוויית Once in a Lifetime</span></div>
+              <div class="day-desc">מזמינים באפליקציה רכב ללא נהג בכלל! יושבים מאחור, ההגה מסתובב לבד ומסכי המגע מציגים את התנועה. חוויית מדע בדיוני מדהימה לילדים! ארוחה ב-Hard Rock Bayside.</div>
             </div>
             <div class="day-card highlight">
-              <div class="day-title"><span>יום 14: שמורת האוורגליידס (Everglades) – שייט רחפת</span><span class="drive-tag">30 דק' נסיעה</span></div>
-              <div class="day-desc">שייט מסעיר בסירת רחף מהירה (Airboat) מעל ביצות העשב לצד עשרות תנינים פראיים בטבע.</div>
+              <div class="day-title"><span>יום 14 (בוקר): שמורת האוורגליידס (Everglades)</span><span class="drive-tag">30 דק' נסיעה</span></div>
+              <div class="day-desc">שייט בסירת רחפת מהירה (Airboat) מעל ביצות העשב לצד עשרות תנינים פראיים. חוזרים בצהריים לבריכה.</div>
             </div>
             <div class="day-card">
               <div class="day-title"><span>יום 15: מוזיאון המדע של מיאמי (Frost Science)</span><span class="drive-tag">20 דק' נסיעה</span></div>
-              <div class="day-desc">אקווריום ענק בן 3 קומות עם כרישים, פלנטריום תלת-ממדי ומתחמי ניסויים לילדים.</div>
+              <div class="day-desc">אקווריום ענק בן 3 קומות ממוזג עם כרישים, פלנטריום תלת-ממדי ומתחמי ניסויים.</div>
             </div>
             <div class="day-card">
-              <div class="day-title"><span>יום 16: יום שופינג באאוטלט הענק Sawgrass Mills</span><span class="drive-tag">25 דק' נסיעה</span></div>
-              <div class="day-desc">כל המותגים האמריקאיים במחירי אאוטלט + זמן בריכה במלון בערב.</div>
+              <div class="day-title"><span>יום 16: יום חוף וקניות באאוטלט Sawgrass Mills</span><span class="drive-tag">25 דק' נסיעה</span></div>
+              <div class="day-desc">מותגים אמריקאיים במחירי אאוטלט + ערב שקט ואריזה.</div>
             </div>
             <div class="day-card">
-              <div class="day-title"><span>יום 17–18: טיסה חזרה לתל אביב</span><span class="drive-tag transit">טיסת ערב מ-MIA</span></div>
-              <div class="day-desc">התארגנות, טיסה ישירה/קצרה מנמל התעופה מיאמי, נחיתה בתל אביב ביום 18.</div>
+              <div class="day-title"><span>יום 17–18: טיסה חזרה לתל אביב ממיאמי</span><span class="drive-tag transit">טיסה מ-MIA</span></div>
+              <div class="day-desc">התארגנות, טיסה מנמל התעופה מיאמי, נחיתה בתל אביב ביום 18.</div>
             </div>
           </div>
         </div>
@@ -628,7 +648,7 @@
       <div id="tab-ny-pa" class="tab-content">
         <h3 style="margin-bottom: 6px;">🏙️ ארה"ב – מסע רב-מדינתי (מנהטן, פנסילבניה, קטסקילס ולייק ג'ורג')</h3>
         <p style="color: var(--text-muted); margin-bottom: 24px;">
-          4 מוקדים מגוונים: מנהטן (3 לילות), ריזורט Kalahari (4 לילות), קטסקילס (5 לילות), לייק ג'ורג' (4 לילות). מעברים קצרים של שעה וחצי!
+          4 מוקדים מגוונים: מנהטן (3 לילות), ריזורט Kalahari (4 לילות), קטסקילס (5 לילות), לייק ג'ורג' (4 לילות).
         </p>
 
         <!-- Block 1 -->
@@ -636,7 +656,7 @@
           <div class="block-header">
             <span class="block-badge">מוקד 1</span>
             <span class="block-title">מנהטן, ניו יורק (3 לילות – ללא רכב)</span>
-            <span class="block-meta">מלון במרכז העיר • מוניות וסאבווי</span>
+            <span class="block-meta">מלון במידטאון • ימים קלילים ביום</span>
           </div>
           <div class="day-list">
             <div class="day-card">
@@ -645,11 +665,11 @@
             </div>
             <div class="day-card">
               <div class="day-title"><span>יום 2: סנטרל פארק + מוזיאון הטבע + Hard Rock Cafe</span><span class="drive-tag">הליכה / סאבווי</span></div>
-              <div class="day-desc">שייט סירות באגם, גן החיות של סנטרל פארק, אולם הדינוזאורים במוזיאון הטבע (AMNH), ערב ב-Hard Rock Cafe Times Square.</div>
+              <div class="day-desc">שייט סירות באגם, גן החיות של סנטרל פארק, אולם הדינוזאורים במוזיאון הטבע (AMNH), ארוחת ערב מוקדמת ב-Hard Rock Cafe Times Square ב-17:30.</div>
             </div>
             <div class="day-card">
               <div class="day-title"><span>יום 3: תצפית Top of the Rock + חנות הצעצועים FAO Schwarz</span><span class="drive-tag">הליכה ברגל</span></div>
-              <div class="day-desc">נוף מרהיב מגורד השחקים, פסנתר הרצפה הענק בחנות הצעצועים, וארוחה במסעדת המלצרים המזמרים Ellen's Stardust.</div>
+              <div class="day-desc">נוף מרהיב מגורד השחקים, פסנתר הרצפה הענק בחנות הצעצועים, וארוחה במסעדת Ellen's Stardust.</div>
             </div>
             <div class="day-card">
               <div class="day-title"><span>יום 4: איסוף רכב ונסיעה לריזורט Kalahari בפנסילבניה</span><span class="drive-tag transit">שעה ו-45 דק' מעבר</span></div>
@@ -676,7 +696,7 @@
             </div>
             <div class="day-card">
               <div class="day-title"><span>יום 7: מפלי Bushkill Falls ("הניאגרה של פנסילבניה")</span><span class="drive-tag">35 דק' נסיעה</span></div>
-              <div class="day-desc">שבילי עץ וגשרונים תלויים בין 8 מפלים שוצפים ביער – הליכה קלה ומרתקת של שעה.</div>
+              <div class="day-desc">שבילי עץ וגשרונים תלויים בין 8 מפלים שוצפים ביער – הליכה קלה ומוצלת של שעה.</div>
             </div>
             <div class="day-card">
               <div class="day-title"><span>יום 8: מעבר לעמק ההדסון והרי הקטסקילס</span><span class="drive-tag transit">שעה ו-20 דק' מעבר</span></div>
@@ -703,7 +723,7 @@
             </div>
             <div class="day-card">
               <div class="day-title"><span>ימים 13–16: אגם לייק ג'ורג' וספינת הקיטור Minne-Ha-Ha</span><span class="drive-tag transit">שעה ו-35 דק' מעבר</span></div>
-              <div class="day-desc">שייט בספינת קיטור אמיתית עם מוזיקת עוגב, חופים חוליים במים מתוקים, ופארק השעשועים Six Flags Great Escape.</div>
+              <div class="day-desc">שייט בוקר בספינת קיטור אמיתית עם מוזיקת עוגב, חופים חוליים במים מתוקים, ופארק השעשועים Six Flags Great Escape.</div>
             </div>
             <div class="day-card">
               <div class="day-title"><span>ימים 17–18: נסיעה ישירה לשדה התעופה וטיסה הביתה</span><span class="drive-tag transit">שעתיים ורבע לשדה</span></div>
@@ -734,7 +754,7 @@
             </div>
             <div class="day-card">
               <div class="day-title"><span>יום 2: רכבל Wagraini’s Grafenberg – עולם ההרפתקאות</span><span class="drive-tag">10 דק' נסיעה</span></div>
-              <div class="day-desc">עולים ברכבל לפסגת ההר: פארק עץ ומים, רפסודות שמושכים בחבל מעל אגם אלפיני.</div>
+              <div class="day-desc">עולים ברכבל לפסגת ההר בשעות הבוקר: פארק עץ ומים, רפסודות שמושכים בחבל מעל אגם אלפיני.</div>
             </div>
             <div class="day-card">
               <div class="day-title"><span>יום 3: מכרות המלח בהאליין (Salzwelten)</span><span class="drive-tag">35 דק' נסיעה</span></div>
@@ -800,9 +820,9 @@
     <div class="decision-card">
       <h3>🎯 המסקנה הסופית להחלטה:</h3>
       <p>
-        <strong>1. פלורידה (~54,000 ₪):</strong> מנצחת בשיגור חלל אמיתי של SpaceX מול העיניים + מים זוהרים בחושך + Volcano Bay.<br>
+        <strong>1. פלורידה (~54,000 ₪):</strong> מנצחת בשיגור חלל ביום + <strong>מונית אוטונומית (Waymo)</strong> + דולפינים + Volcano Bay (ללא אטרקציות לילה!).<br>
         <strong>2. צפון-מזרח ארה"ב (~50,000 ₪):</strong> מנצח במנהטן + פארק המים המקורה הגדול בארה"ב (Kalahari) + הרשי שוקולד וטבע ירוק.<br>
-        <strong>3. אוסטריה (~37,000 ₪):</strong> מנצחת במערת הקרח הגדולה בעולם + פארק המים הגדול בעולם (Erding) + אפס ג'ט-לג וחיסכון של כ-15,000 ₪.
+        <strong>3. אוסטריה (~37,000 ₪):</strong> מנצחת במערת הקרח הגדולה בעולם + פארק המים הגדול בעולם (Erding) + אפס ג'ט-לג וחיסכון של כ-17,000 ₪.
       </p>
       <div class="actions-bar">
         <button class="btn btn-print" onclick="window.print()">🖨️ הדפסה / שמירה כ-PDF לשיתוף</button>
