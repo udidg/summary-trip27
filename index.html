@@ -37,7 +37,11 @@
           4 אפשרויות זמינות לבחינה
         </span>
       </div>
+      <div class="mobile-swipe-hint">
+        <span>👈 החליקו אופקית לבחירה בין 4 היעדים</span>
+      </div>
       <div id="destinationCardsGrid" class="dest-grid"></div>
+      <div id="carouselDots" class="carousel-dots"></div>
     </div>
 
     <!-- 2. Sticky Floating Quick-Switcher Bar -->
@@ -51,6 +55,9 @@
       <div class="section-title">
         <span>💰 השוואת עלויות מדויקת ומאומתת (כולל טיסות ישירות ומזוודות)</span>
         <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">מחירי שיא אוגוסט למשפחה של 4 נפשות</span>
+      </div>
+      <div class="mobile-table-hint">
+        <span>👈 החליקו אופקית להשוואת כל 4 היעדים (קטגוריה מקובעת מימין)</span>
       </div>
       <div id="costsTableContainer"></div>
     </div>
@@ -104,10 +111,15 @@
     </div>
   </div>
 
-  <!-- Floating Menu Trigger Button (Mobile & Desktop) -->
+  <!-- Floating Menu Trigger Button (Desktop only; on mobile the sticky switcher has it) -->
   <button id="floatingMenuBtn" class="floating-menu-btn" onclick="openSideMenu()" aria-label="תפריט ניווט מהיר" title="תפריט ניווט מהיר">
     <span class="floating-menu-icon">☰</span>
     <span class="floating-menu-text">תפריט וניווט</span>
+  </button>
+
+  <!-- Mobile Floating Back to Top Button -->
+  <button id="backToTopBtn" class="back-to-top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="חזרה לראש הדף" title="חזרה לראש הדף">
+    <span>↑</span>
   </button>
 
   <!-- Side Menu Backdrop Overlay -->

@@ -13,6 +13,7 @@ function renderAll() {
     return;
   }
   renderDestinationHub();
+  renderCarouselDots();
   renderStickySwitcher();
   renderItineraries();
   renderCostsTable();
@@ -20,6 +21,7 @@ function renderAll() {
   renderPrinciples();
   renderDecisionBox();
   renderSideMenuContent();
+  setupCarouselScrollListener();
 }
 
 function renderDestinationHub() {
@@ -27,7 +29,7 @@ function renderDestinationHub() {
   if (!container) return;
 
   container.innerHTML = TRIP_DATA.destinations.map(d => `
-    <div class="dest-card ${d.id === currentActiveTab ? 'active' : ''}" data-tab="${d.id}" onclick="showTab('${d.id}', false)">
+    <div class="dest-card ${d.id === currentActiveTab ? 'active' : ''}" data-tab="${d.id}" onclick="showTab('${d.id}', true)">
       <div>
         <div class="dest-card-top">
           <div class="dest-title-group">
@@ -47,11 +49,26 @@ function renderDestinationHub() {
         </div>
       </div>
       <div class="dest-cta">
-        <span>צפה במפרט המסלול</span>
+        <span>צפה במפרט המסלול המלא</span>
         <span class="dest-cta-indicator">👈</span>
       </div>
     </div>
   `).join('');
+}
+
+function renderCarouselDots() {
+  const dotsContainer = document.getElementById('carouselDots');
+  if (!dotsContainer) return;
+  dotsContainer.innerHTML = TRIP_DATA.destinations.map(d => `
+    <span class="carousel-dot ${d.id === currentActiveTab ? 'active' : ''}" data-tab="${d.id}" onclick="showTab('${d.id}', false); scrollCardToView('${d.id}');" title="${d.name}"></span>
+  `).join('');
+}
+
+function scrollCardToView(tabId) {
+  const card = document.querySelector(`.dest-card[data-tab="${tabId}"]`);
+  if (card) {
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
 }
 
 function renderStickySwitcher() {
@@ -151,21 +168,127 @@ function renderItineraries() {
   `).join('');
 }
 
+function renderItineraries() {
+  const container = document.getElementById('itinerarySection');
+  if (!container) return;
+
+  container.innerHTML = TRIP_DATA.destinations.map(d => {
+    // Generate stage jump pills for fast navigation on mobile
+    const stagePills = (d.blocks || []).map((b, idx) => `
+      <button class="stage-jump-chip" onclick="jumpToStage('${d.id}-stage-${idx}')" title="קפיצה לשלב: ${b.title}">
+        <span class="stage-chip-badge">${b.badge}</span>
+        <span class="stage-chip-title">${b.title}</span>
+      </button>
+    `).join('');
+
+    return `
+    <div id="${d.id}" class="tab-content ${d.id === currentActiveTab ? 'active' : ''}">
+      ${d.candidateBanner ? `
+        <div class="candidate-alert-box">
+          <span style="font-size: 2.2rem; flex-shrink: 0;">${d.candidateBanner.icon}</span>
+          <div>
+            <h4 style="color: #854d0e; font-size: 1.08rem; margin-bottom: 4px; font-weight: 800;">${d.candidateBanner.title}</h4>
+            <p style="color: #a16207; font-size: 0.88rem; margin: 0; line-height: 1.5;">${d.candidateBanner.desc}</p>
+          </div>
+        </div>
+      ` : ''}
+
+      <div class="tab-main-header">
+        <div class="tab-main-title-wrap">
+          <span class="tab-main-icon">${d.icon}</span>
+          <div>
+            <h3>${d.title}</h3>
+            <p class="tab-main-subtitle">${d.subtitle}</p>
+          </div>
+        </div>
+        <div class="tab-cost-pill">
+          <span class="label">עלות כוללת:</span>
+          <span class="val">${d.costBadge}</span>
+        </div>
+      </div>
+
+      <!-- Quick Stage Jump Bar (Super handy on mobile) -->
+      <div class="stage-jump-nav">
+        <div class="stage-jump-label">⚡ קפיצה מהירה לשלבי הטיול:</div>
+        <div class="stage-jump-scroll">
+          ${stagePills}
+        </div>
+      </div>
+
+      <!-- Flight Filter Box -->
+      <div class="tab-flight-box" ${d.flightBox.boxStyle ? `style="${d.flightBox.boxStyle}"` : ''}>
+        <div class="tab-flight-header">
+          <span ${d.flightBox.titleStyle ? `style="${d.flightBox.titleStyle}"` : ''}>${d.flightBox.title}</span>
+          <span class="tab-flight-badge" ${d.flightBox.badgeStyle ? `style="${d.flightBox.badgeStyle}"` : ''}>${d.flightBox.badge}</span>
+        </div>
+        <div class="tab-flight-desc" ${d.flightBox.descStyle ? `style="${d.flightBox.descStyle}"` : ''}>
+          ${d.flightBox.desc}
+        </div>
+        ${d.flightBox.timingNote ? `
+          <div class="tab-flight-timing" ${d.flightBox.timingStyle ? `style="${d.flightBox.timingStyle}"` : ''}>
+            <span style="font-size: 1.1rem; line-height: 1;">⏰</span>
+            <div>${d.flightBox.timingNote}</div>
+          </div>
+        ` : ''}
+        <a href="${d.flightBox.url}" target="_blank" rel="noopener" class="tab-flight-btn" ${d.flightBox.btnStyle ? `style="${d.flightBox.btnStyle}"` : ''}>
+          ${d.flightBox.btnText}
+        </a>
+        ${d.flightBox.secondaryBtn ? `
+          <a href="${d.flightBox.secondaryBtn.url}" target="_blank" rel="noopener" class="tab-flight-btn" ${d.flightBox.secondaryBtn.btnStyle ? `style="${d.flightBox.secondaryBtn.btnStyle}"` : ''}>
+            ${d.flightBox.secondaryBtn.btnText}
+          </a>
+        ` : ''}
+      </div>
+
+      <!-- Extra Feature Showcases -->
+      ${(d.extraFeatureBoxes || []).join('\n')}
+
+      <!-- Itinerary Blocks -->
+      ${d.blocks.map((b, idx) => `
+        <div id="${d.id}-stage-${idx}" class="itinerary-block">
+          <div class="block-header">
+            <span class="block-badge" ${b.badgeStyle ? `style="${b.badgeStyle}"` : ''}>${b.badge}</span>
+            <span class="block-title">${b.title}</span>
+            <span class="block-meta">${b.meta}</span>
+            ${b.photoKey ? `
+              <button class="photo-btn" onclick="openPhotoModal('${b.photoKey}')">${b.photoBtnText || '📸 הצג תמונות'}</button>
+            ` : ''}
+          </div>
+          <div class="day-list">
+            ${b.days.map(day => `
+              <div class="day-card ${day.cardClass || ''}" ${day.cardStyle ? `style="${day.cardStyle}"` : ''}>
+                <div class="day-title">
+                  <span class="day-title-text">${day.title}</span>
+                  ${day.tag ? `<span class="drive-tag ${day.tagClass || ''}">${day.tag}</span>` : ''}
+                </div>
+                <div class="day-desc">${day.desc}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    `;
+  }).join('');
+}
+
 function renderCostsTable() {
-  const wrapper = document.getElementById('costsTableWrapper');
-  if (!wrapper) return;
+  const container = document.getElementById('costsTableContainer') || document.getElementById('costsTableWrapper');
+  if (!container) return;
 
   const ct = TRIP_DATA.costsTable;
-  wrapper.innerHTML = `
+  container.innerHTML = `
     <table class="comparison-table">
       <thead>
         <tr>
           ${ct.headers.map((h, i) => i === 0 ? `
-            <th style="width: 20%;">${h.name}</th>
+            <th class="table-cat-th">${h.name}</th>
           ` : `
-            <th ${h.isCandidate ? 'style="background: #fefce8; border-bottom: 2px solid #eab308;"' : ''}>
-              ${h.icon} ${h.name}<br>
-              <button class="table-jump-btn" ${h.isCandidate ? 'style="background: #fef08a; color: #854d0e; border-color: #fde047;"' : ''} onclick="showTab('${h.tabId}', true)">צפה במסלול 👈</button>
+            <th class="table-dest-th ${h.isCandidate ? 'candidate-th' : ''}">
+              <div class="th-content">
+                <span class="th-name">${h.icon} ${h.name}</span>
+                <button class="table-jump-btn" ${h.isCandidate ? 'style="background: #fef08a; color: #854d0e; border-color: #fde047;"' : ''} onclick="showTab('${h.tabId}', true)">צפה במסלול 👈</button>
+              </div>
             </th>
           `).join('')}
         </tr>
@@ -173,7 +296,7 @@ function renderCostsTable() {
       <tbody>
         ${ct.rows.map(r => `
           <tr ${r.rowStyle ? `style="${r.rowStyle}"` : ''} class="${r.isTotalUSD ? 'total-row' : ''} ${r.isTotalILS ? 'total-row-ils' : ''}">
-            <td>
+            <td class="table-cat-td">
               <strong>${r.category}</strong>
               ${r.catSub ? `<br><span style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">${r.catSub}</span>` : ''}
             </td>
@@ -185,8 +308,8 @@ function renderCostsTable() {
             `).join('')}
           </tr>
         `).join('')}
-        <tr style="background: #f8fafc;">
-          <td><strong>ניווט ישיר לתוכנית יומית</strong></td>
+        <tr style="background: #f8fafc;" class="nav-row">
+          <td class="table-cat-td"><strong>ניווט ישיר לתוכנית יומית</strong></td>
           ${TRIP_DATA.destinations.map(d => `
             <td>
               <button class="table-jump-btn" ${d.isCandidate ? 'style="background: #fef08a; color: #854d0e; border-color: #fde047;"' : ''} onclick="showTab('${d.id}', true)">פתיחת ${d.shortName} 👈</button>
@@ -199,34 +322,26 @@ function renderCostsTable() {
 }
 
 function renderFlightPills() {
-  const wrapper = document.getElementById('flightLinksWrapper');
-  if (!wrapper) return;
+  const container = document.getElementById('flightLinksGrid') || document.getElementById('flightLinksWrapper');
+  if (!container) return;
 
-  wrapper.innerHTML = `
-    <div class="flight-links-grid">
-      ${TRIP_DATA.flightPills.map(p => `
-        <a href="${p.url}" target="_blank" rel="noopener" class="flight-pill" ${p.style ? `style="${p.style}"` : ''}>
-          ${p.label}
-        </a>
-      `).join('')}
-    </div>
-  `;
+  container.innerHTML = TRIP_DATA.flightPills.map(p => `
+    <a href="${p.url}" target="_blank" rel="noopener" class="flight-pill" ${p.style ? `style="${p.style}"` : ''}>
+      ${p.label}
+    </a>
+  `).join('');
 }
 
 function renderPrinciples() {
-  const wrapper = document.getElementById('principlesWrapper');
-  if (!wrapper) return;
+  const container = document.getElementById('formulaGrid') || document.getElementById('principlesWrapper');
+  if (!container) return;
 
-  wrapper.innerHTML = `
-    <div class="formula-grid">
-      ${TRIP_DATA.principles.map(p => `
-        <div class="formula-item ${p.cls || ''}" ${p.style ? `style="${p.style}"` : ''}>
-          <strong>${p.title}</strong>
-          <span>${p.desc}</span>
-        </div>
-      `).join('')}
+  container.innerHTML = TRIP_DATA.principles.map(p => `
+    <div class="formula-item ${p.cls || ''}" ${p.style ? `style="${p.style}"` : ''}>
+      <strong>${p.title}</strong>
+      <span>${p.desc}</span>
     </div>
-  `;
+  `).join('');
 }
 
 function renderDecisionBox() {
@@ -310,6 +425,17 @@ function showTab(tabId, shouldScroll = false) {
     el.classList.toggle('active', el.getAttribute('data-tab') === tabId);
   });
 
+  // Center active sticky pill horizontally
+  const activePill = document.querySelector(`.sticky-pill[data-tab="${tabId}"]`);
+  if (activePill) {
+    activePill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+
+  // Carousel dots
+  document.querySelectorAll('.carousel-dot').forEach(dot => {
+    dot.classList.toggle('active', dot.getAttribute('data-tab') === tabId);
+  });
+
   // Side menu items
   updateSideMenuActiveTab(tabId);
 
@@ -322,20 +448,62 @@ function showTab(tabId, shouldScroll = false) {
   if (shouldScroll) {
     const sec = document.getElementById('itinerarySection');
     if (sec) {
-      const yOffset = -20;
+      const yOffset = -50;
       const y = sec.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   }
 }
 
+function jumpToStage(stageId) {
+  const el = document.getElementById(stageId);
+  if (el) {
+    const yOffset = -60;
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+}
+
 function jumpToItineraryTop() {
   const sec = document.getElementById('itinerarySection');
   if (sec) {
-    const yOffset = -15;
+    const yOffset = -50;
     const y = sec.getBoundingClientRect().top + window.pageYOffset + yOffset;
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
+}
+
+function setupCarouselScrollListener() {
+  const grid = document.getElementById('destinationCardsGrid');
+  if (!grid) return;
+  let isScrollingTimeout;
+  grid.addEventListener('scroll', () => {
+    clearTimeout(isScrollingTimeout);
+    isScrollingTimeout = setTimeout(() => {
+      const cards = grid.querySelectorAll('.dest-card');
+      const gridRect = grid.getBoundingClientRect();
+      const gridCenter = gridRect.left + gridRect.width / 2;
+      let closestCard = null;
+      let minDistance = Infinity;
+
+      cards.forEach(card => {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenter = cardRect.left + cardRect.width / 2;
+        const dist = Math.abs(gridCenter - cardCenter);
+        if (dist < minDistance) {
+          minDistance = dist;
+          closestCard = card;
+        }
+      });
+
+      if (closestCard) {
+        const tabId = closestCard.getAttribute('data-tab');
+        if (tabId && tabId !== currentActiveTab) {
+          showTab(tabId, false);
+        }
+      }
+    }, 90);
+  }, { passive: true });
 }
 
 // Side Menu Drawer Controls
@@ -447,6 +615,18 @@ if (sideMenuEl) {
     }
   }, { passive: true });
 }
+
+// Back to top floating button visibility
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('backToTopBtn');
+  if (btn) {
+    if (window.scrollY > 380) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }
+}, { passive: true });
 
 // Initialization on DOMContentLoaded
 window.addEventListener('DOMContentLoaded', () => {

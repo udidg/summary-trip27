@@ -266,6 +266,44 @@
       color: var(--text-muted);
     }
 
+    .mobile-swipe-hint,
+    .mobile-table-hint {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: #64748b;
+      background: #f1f5f9;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      width: fit-content;
+      font-weight: 600;
+    }
+
+    .carousel-dots {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      margin: 8px 0 14px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .carousel-dot.active {
+      background: var(--primary);
+      width: 22px;
+      border-radius: 10px;
+    }
+
     .dest-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -533,11 +571,148 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Tab Main Header & Stage Jump Nav */
+    .tab-main-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .tab-main-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .tab-main-icon {
+      font-size: 2.3rem;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+
+    .tab-main-header h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 4px 0;
+    }
+
+    .tab-main-subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .tab-cost-pill {
+      background: #eff6ff;
+      border: 1.5px solid #bfdbfe;
+      padding: 6px 14px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .tab-cost-pill .label {
+      font-size: 0.78rem;
+      color: #1e40af;
+    }
+
+    .tab-cost-pill .val {
+      font-size: 1.05rem;
+      color: #1d4ed8;
+    }
+
+    .candidate-alert-box {
+      background: #fefce8;
+      border: 1.5px solid #fde047;
+      padding: 14px 18px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Stage Jump Bar for Effortless Navigation */
+    .stage-jump-nav {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .stage-jump-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    .stage-jump-scroll {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 2px;
+    }
+
+    .stage-jump-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .stage-jump-chip {
+      background: white;
+      border: 1px solid #cbd5e1;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      color: #1e293b;
+    }
+
+    .stage-jump-chip:hover {
+      background: #eff6ff;
+      border-color: #93c5fd;
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .stage-chip-badge {
+      background: #e2e8f0;
+      color: #334155;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    .stage-chip-title {
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
     /* Itinerary timeline styling */
     .itinerary-block {
       margin-bottom: 26px;
       padding-bottom: 20px;
       border-bottom: 1px dashed var(--border);
+      scroll-margin-top: 70px;
     }
 
     .itinerary-block:last-child {
@@ -1532,6 +1707,432 @@
 
     .menu-bottom-close:hover {
       background: #e2e8f0;
+    }
+
+    
+    /* =========================================================
+       ✨ Mobile-First UX & Clean Responsive Enhancements
+       ========================================================= */
+
+    /* Scroll hints for touch screens */
+    .mobile-swipe-hint,
+    .mobile-table-hint {
+      display: none;
+      font-size: 0.78rem;
+      color: #64748b;
+      margin-bottom: 8px;
+      font-weight: 600;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 85px;
+      }
+
+      header {
+        padding: 24px 16px 20px;
+      }
+
+      header h1 {
+        font-size: 1.55rem;
+        line-height: 1.3;
+        margin-bottom: 6px;
+      }
+
+      header p {
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+
+      .header-badge {
+        font-size: 0.76rem;
+        padding: 4px 12px;
+        margin-bottom: 8px;
+      }
+
+      .container {
+        padding: 0 12px;
+        margin-top: 14px;
+      }
+
+      /* 1. Destination Hub: Swipeable Horizontal Carousel on Mobile */
+      .destination-hub {
+        padding: 14px 14px 12px;
+        margin-bottom: 16px;
+        border-radius: 14px;
+      }
+
+      .hub-header {
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+      }
+
+      .hub-header h3 {
+        font-size: 1.1rem;
+      }
+
+      .hub-header p {
+        font-size: 0.8rem;
+      }
+
+      .mobile-swipe-hint {
+        display: flex;
+      }
+
+      .dest-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+        margin: 0 -14px;
+        padding: 4px 14px 10px 14px;
+        scrollbar-width: none;
+      }
+
+      .dest-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .dest-card {
+        flex: 0 0 84vw;
+        max-width: 310px;
+        scroll-snap-align: center;
+        padding: 14px 14px 12px;
+        border-radius: 12px;
+      }
+
+      .dest-desc {
+        font-size: 0.84rem;
+        line-height: 1.45;
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .dest-tags {
+        gap: 4px;
+      }
+
+      .dest-tag {
+        font-size: 0.72rem;
+        padding: 2px 7px;
+      }
+
+      /* 2. Sticky Switcher: Compact & Seamless on Mobile */
+      .sticky-switcher {
+        top: 0;
+        margin: 0 -12px 16px -12px;
+        border-radius: 0 0 14px 14px;
+        padding: 8px 10px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      }
+
+      .sticky-pills-wrap {
+        gap: 6px;
+      }
+
+      .sticky-pill {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+      }
+
+      .sticky-top-jump {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+      }
+
+      /* 3. Day Cards: Clean hierarchy with accent indicators */
+      .itinerary-block {
+        margin-bottom: 22px;
+        padding-bottom: 18px;
+      }
+
+      .block-header {
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+
+      .block-badge {
+        font-size: 0.76rem;
+        padding: 3px 9px;
+      }
+
+      .block-title {
+        font-size: 1rem;
+      }
+
+      .block-meta {
+        font-size: 0.78rem;
+        width: 100%;
+        margin-top: -2px;
+      }
+
+      .photo-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.82rem;
+        padding: 7px 12px;
+        margin-top: 4px;
+      }
+
+      .day-list {
+        gap: 8px;
+      }
+
+      .day-card {
+        padding: 11px 13px;
+        border-radius: 10px;
+        border-right: 3.5px solid #cbd5e1;
+      }
+
+      .day-card.highlight {
+        border-right-color: #f59e0b;
+      }
+
+      .day-card.highlight-purple {
+        border-right-color: #8b5cf6;
+      }
+
+      .day-card.safe-kids {
+        border-right-color: #10b981;
+      }
+
+      .day-title {
+        font-size: 0.92rem;
+        gap: 6px;
+      }
+
+      .drive-tag {
+        font-size: 0.72rem;
+        padding: 2px 6px;
+      }
+
+      .day-desc {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: #334155;
+      }
+
+      /* 4. Contextual Flight Box on Mobile */
+      .tab-flight-box {
+        padding: 12px 14px;
+        border-radius: 10px;
+        margin-bottom: 16px;
+      }
+
+      .tab-flight-header {
+        font-size: 0.9rem;
+      }
+
+      .tab-flight-desc {
+        font-size: 0.82rem;
+      }
+
+      .tab-flight-timing {
+        padding: 8px 10px;
+        font-size: 0.78rem;
+        margin: 6px 0 10px;
+      }
+
+      .tab-flight-btn {
+        width: 100%;
+        font-size: 0.78rem;
+        padding: 9px 12px;
+        text-align: center;
+      }
+
+      /* 5. Comparison Table with Sticky Category Column */
+      .comparison-section {
+        padding: 14px 10px;
+        border-radius: 12px;
+        margin-bottom: 22px;
+        overflow-x: hidden;
+      }
+
+      .section-title {
+        font-size: 1.15rem;
+        margin-bottom: 12px;
+      }
+
+      .mobile-table-hint {
+        display: flex;
+      }
+
+      #costsTableContainer {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 10px;
+        border: 1px solid #e2e8f0;
+        margin: 0 -4px;
+      }
+
+      table {
+        min-width: 640px;
+        font-size: 0.82rem;
+      }
+
+      th, td {
+        padding: 9px 10px;
+      }
+
+      /* Pinned Category Column on Right (RTL) */
+      table th:first-child,
+      table td:first-child {
+        position: sticky;
+        right: 0;
+        z-index: 2;
+        background: #ffffff;
+        box-shadow: -3px 0 8px rgba(0, 0, 0, 0.06);
+        border-left: 1.5px solid #e2e8f0;
+        min-width: 130px;
+        max-width: 150px;
+      }
+
+      table th:first-child {
+        z-index: 3;
+        background: #f1f5f9;
+      }
+
+      table tr.total-row td:first-child {
+        background: #f8fafc;
+      }
+
+      table tr.total-row-ils td:first-child {
+        background: #eff6ff;
+      }
+
+      /* 6. Formula Grid on Mobile */
+      .formula-card {
+        padding: 16px 14px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+      }
+
+      .formula-header h2 {
+        font-size: 1.15rem;
+      }
+
+      .formula-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .formula-item {
+        padding: 10px 12px;
+        font-size: 0.84rem;
+      }
+
+      /* 7. Decision Box on Mobile */
+      .decision-card {
+        padding: 18px 14px;
+        border-radius: 12px;
+        margin-top: 20px;
+      }
+
+      .decision-card h3 {
+        font-size: 1.15rem;
+      }
+
+      .decision-card p {
+        font-size: 0.85rem;
+        line-height: 1.55;
+      }
+
+      /* 8. Stage Jump Nav & Tab Main Header on Mobile */
+      .stage-jump-nav {
+        padding: 8px 10px;
+        margin-bottom: 16px;
+        border-radius: 10px;
+      }
+
+      .stage-jump-label {
+        font-size: 0.76rem;
+      }
+
+      .stage-jump-chip {
+        padding: 5px 10px;
+        font-size: 0.78rem;
+        gap: 6px;
+      }
+
+      .stage-chip-badge {
+        font-size: 0.68rem;
+        padding: 2px 6px;
+      }
+
+      .stage-chip-title {
+        font-size: 0.78rem;
+      }
+
+      .tab-main-header {
+        margin-bottom: 12px;
+        gap: 10px;
+      }
+
+      .tab-main-icon {
+        font-size: 1.8rem;
+      }
+
+      .tab-main-header h3 {
+        font-size: 1.15rem;
+      }
+
+      .tab-main-subtitle {
+        font-size: 0.82rem;
+      }
+
+      .tab-cost-pill {
+        padding: 4px 10px;
+        font-size: 0.78rem;
+      }
+
+      .tab-cost-pill .val {
+        font-size: 0.95rem;
+      }
+
+      /* 9. Floating Menu Button & Drawer */
+      /* On mobile, sticky switcher at top:0 already has menu trigger, hide bottom floating button to prevent covering text */
+      .floating-menu-btn {
+        display: none !important;
+      }
+
+      .side-menu-drawer {
+        width: min(340px, 86vw);
+      }
+
+      /* 10. Floating Back-to-Top Button on Mobile */
+      .back-to-top-btn {
+        position: fixed;
+        bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+        left: 14px;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        color: #1e293b;
+        border: 1.5px solid #cbd5e1;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        font-size: 1.1rem;
+        font-weight: 800;
+        cursor: pointer;
+        z-index: 90;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+      }
+
+      .back-to-top-btn.visible {
+        display: flex;
+      }
     }
 
     @media print {
