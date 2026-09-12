@@ -21,13 +21,14 @@
      * **אמריקן איירליינס / דלתא / יונייטד:** טיסות ישירות ל-JFK/EWR (אמריקן איירליינס הפעילה קו ישיר ל-JFK עם טיסת לילה שיוצאת ב-00:30; במקביל דלתא ויונייטד מציעות טיסות ישירות).
    * הילדים ישנים כל הטיסה ומגיעים מוכנים לבוקר במנהטן.
 
-### 🔍 קישורים ישירים ומסוננים ל-Google Flights (טיסות ישירות הלוך-חזור):
-* 🛫 **פלורידה:** [חיפוש טיסות ישירות TLV ⇄ MIA (אל על ישיר)](https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MIA%20nonstop%20round%20trip)
-* 🛫 **ניו יורק (JFK):** [חיפוש טיסות ישירות TLV ⇄ JFK (אמריקן איירליינס / אל על ישיר)](https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20JFK%20nonstop%20round%20trip)
-* 🛫 **ניו יורק (ניוארק EWR):** [חיפוש טיסות ישירות TLV ⇄ EWR (יונייטד / אל על ישיר)](https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20EWR%20nonstop%20round%20trip)
-* 🛫 **אוסטריה (מינכן MUC):** [חיפוש טיסות ישירות TLV ⇄ MUC (לופטהנזה / אל על ישיר)](https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MUC%20nonstop%20round%20trip)
-* 🛫 **אוסטריה (וינה VIE):** [חיפוש טיסות ישירות TLV ⇄ VIE (אוסטריאן / אל על ישיר)](https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20VIE%20nonstop%20round%20trip)
-* 🛫 **דרום קוריאה (סיאול ICN):** [חיפוש טיסות ישירות TLV ⇄ ICN (קוריאן אייר / אל על ישיר)](https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20nonstop%20round%20trip)
+### 🔍 קישורים ישירים ומסוננים ל-Google Flights (2 מבוגרים + 2 ילדים בני 5 ו-7 • 1–18 באוגוסט 2027 • ישיר בלבד):
+* 🛫 **פלורידה (מיאמי MIA):** [פתח חיפוש ישיר TLV ⇄ MIA באל על (Dreamliner 787)](https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MIA%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop)
+* 🛫 **ניו יורק (JFK):** [פתח חיפוש ישיר TLV ⇄ JFK (אמריקן איירליינס / אל על ישיר לילה)](https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20JFK%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop)
+* 🛫 **ניו יורק (ניוארק EWR):** [פתח חיפוש ישיר TLV ⇄ EWR (יונייטד / אל על ישיר לילה)](https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20EWR%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop)
+* 🛫 **אוסטריה (מינכן MUC):** [פתח חיפוש ישיר TLV ⇄ MUC (לופטהנזה / אל על – 3.5 שעות)](https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MUC%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop)
+* 🛫 **אוסטריה (וינה VIE):** [פתח חיפוש ישיר TLV ⇄ VIE (אוסטריאן / אל על – 3.5 שעות)](https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20VIE%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop)
+* 🛫 **דרום קוריאה (סיאול ICN):** [פתח חיפוש ישיר TLV ⇄ ICN (קוריאן אייר / אל על ישיר)](https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop)
+
 
 ---
 

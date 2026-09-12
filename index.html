@@ -876,6 +876,74 @@
       box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
     }
 
+    /* Contextual Tab Flight Box */
+    .tab-flight-box {
+      background: #eff6ff;
+      border: 1.5px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tab-flight-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-weight: 800;
+      color: #1e40af;
+      font-size: 0.98rem;
+    }
+    .tab-flight-badge {
+      background: #2563eb;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .tab-flight-desc {
+      font-size: 0.86rem;
+      color: #1e40af;
+      line-height: 1.45;
+    }
+    .tab-flight-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #2563eb;
+      color: white;
+      font-size: 0.83rem;
+      font-weight: 700;
+      padding: 7px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      align-self: flex-start;
+      margin-top: 4px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+    }
+    .tab-flight-btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+    }
+    .table-flight-link {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #2563eb;
+      text-decoration: underline;
+      transition: color 0.15s;
+    }
+    .table-flight-link:hover {
+      color: #1d4ed8;
+    }
+
     /* Kinderhotel Luxury Showcase */
     .kinderhotel-card {
       background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
@@ -1015,30 +1083,37 @@
     <div class="flight-alert">
       <div class="flight-alert-icon">✈️</div>
       <div class="flight-alert-content">
-        <h4>דיוק הטיסות: טיסות לילה ישירות ומפנקות ללא קונקשנים!</h4>
+        <h4>דיוק הטיסות: טיסות ישירות ומפנקות ללא קונקשנים!</h4>
         <p>
           <strong>לפלורידה:</strong> טיסה ישירה של <strong>אל על למיאמי (LY 17/18 בדרימליינר 787)</strong> – המראה ב-00:30 בלילה, הילדים ישנים 9 שעות רצוף ונוחתים ב-06:30 בבוקר במיאמי רעננים!<br>
-          <strong>לניו יורק:</strong> טיסות לילה ישירות (אל על / אמריקן איירליינס / יונייטד) – המראה בחצות, נחיתה ב-05:30 בבוקר.
+          <strong>לניו יורק:</strong> טיסות לילה ישירות (אל על / אמריקן איירליינס / יונייטד) – המראה בחצות, נחיתה ב-05:30 בבוקר.<br>
+          <strong>לאוסטריה:</strong> טיסה ישירה קצרצרה של 3.5 שעות בלבד ללא ג'ט-לג.<br>
+          <strong>לקוריאה:</strong> טיסה ישירה לסיאול (11.5 שעות) בבואינג 787.
         </p>
         <div class="flight-links-wrapper">
-          <div class="flight-links-title">🔍 קישורים ישירים ל-Google Flights (מסוננים לטיסות ישירות הלוך-חזור):</div>
+          <div class="flight-links-title">
+            <span>🔍 קישורים ישירים ומסוננים ל-Google Flights:</span>
+            <span style="background: #2563eb; color: white; padding: 2px 9px; border-radius: 12px; font-size: 0.74rem; margin-right: 6px; font-weight: 700;">👥 2 מבוגרים + 2 ילדים (בני 5 ו-7)</span>
+            <span style="background: #0284c7; color: white; padding: 2px 9px; border-radius: 12px; font-size: 0.74rem; margin-right: 4px; font-weight: 700;">📅 1–18 באוגוסט 2027</span>
+            <span style="background: #10b981; color: white; padding: 2px 9px; border-radius: 12px; font-size: 0.74rem; margin-right: 4px; font-weight: 700;">✈️ טיסות ישירות</span>
+          </div>
           <div class="flight-links-grid">
-            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MIA%20nonstop%20round%20trip" target="_blank" rel="noopener" class="flight-pill">
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MIA%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
               🛫 פלורידה: TLV ⇄ MIA (אל על ישיר) ↗
             </a>
-            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20JFK%20nonstop%20round%20trip" target="_blank" rel="noopener" class="flight-pill">
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20JFK%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
               🛫 ניו יורק: TLV ⇄ JFK (אמריקן / אל על ישיר) ↗
             </a>
-            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20EWR%20nonstop%20round%20trip" target="_blank" rel="noopener" class="flight-pill">
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20EWR%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
               🛫 ניו יורק: TLV ⇄ EWR (יונייטד / אל על ישיר) ↗
             </a>
-            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MUC%20nonstop%20round%20trip" target="_blank" rel="noopener" class="flight-pill">
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MUC%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
               🛫 אוסטריה: TLV ⇄ MUC (לופטהנזה / אל על ישיר) ↗
             </a>
-            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20VIE%20nonstop%20round%20trip" target="_blank" rel="noopener" class="flight-pill">
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20VIE%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill">
               🛫 אוסטריה: TLV ⇄ VIE (אוסטריאן / אל על ישיר) ↗
             </a>
-            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20nonstop%20round%20trip" target="_blank" rel="noopener" class="flight-pill" style="background: #fefce8; border-color: #fde047; color: #854d0e;">
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="flight-pill" style="background: #fefce8; border-color: #fde047; color: #854d0e;">
               🛫 קוריאה: TLV ⇄ ICN (קוריאן אייר / אל על ישיר) ↗
             </a>
           </div>
@@ -1109,11 +1184,23 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>טיסות ישירות (4 נפשות)</strong></td>
-            <td><strong>$5,800</strong> (אל על Dreamliner ישיר, ~$1,450 לאדם)</td>
-            <td><strong>$5,400</strong> (אמריקן/אל על ישיר, ~$1,350 לאדם)</td>
-            <td><strong>$3,000</strong> (טיסה ישירה 3.5 שעות, ~$750 לאדם)</td>
-            <td><strong>$4,800</strong> (טיסה ישירה לסיאול, ~$1,200 לאדם)</td>
+            <td><strong>טיסות ישירות (4 נפשות)</strong><br><span style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">2 מבוגרים + 2 ילדים • 1–18 באוגוסט</span></td>
+            <td>
+              <strong>$5,800</strong> (אל על Dreamliner ישיר, ~$1,450 לאדם)<br>
+              <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MIA%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="table-flight-link">🔍 פתח חיפוש טיסה לפלורידה ↗</a>
+            </td>
+            <td>
+              <strong>$5,400</strong> (אמריקן/אל על ישיר, ~$1,350 לאדם)<br>
+              <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20JFK%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="table-flight-link">🔍 פתח חיפוש טיסה לניו יורק ↗</a>
+            </td>
+            <td>
+              <strong>$3,000</strong> (טיסה ישירה 3.5 שעות, ~$750 לאדם)<br>
+              <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MUC%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="table-flight-link">🔍 פתח חיפוש טיסה לאוסטריה ↗</a>
+            </td>
+            <td>
+              <strong>$4,800</strong> (טיסה ישירה לסיאול, ~$1,200 לאדם)<br>
+              <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="table-flight-link" style="color: #854d0e;">🔍 פתח חיפוש טיסה לקוריאה ↗</a>
+            </td>
           </tr>
           <tr>
             <td><strong>לינה (17 לילות)</strong></td>
@@ -1340,9 +1427,23 @@
       <!-- Tab 1: Florida Day-by-Day -->
       <div id="tab-florida" class="tab-content active">
         <h3 style="margin-bottom: 6px;">🚀 פלורידה – מעגל מושלם ממיאמי (טיסת לילה ישירה באל על)</h3>
-        <p style="color: var(--text-muted); margin-bottom: 24px;">
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
           ממריאים ב-00:30 מתל אביב ב-Dreamliner, ישנים כל הלילה ונוחתים ב-06:30 בבוקר במיאמי. אפס קונקשנים!
         </p>
+
+        <!-- Flight Filter Box for Florida -->
+        <div class="tab-flight-box">
+          <div class="tab-flight-header">
+            <span>✈️ טיסות ישירות באל על למיאמי (TLV ⇄ MIA)</span>
+            <span class="tab-flight-badge">אל על LY 17/18 • Dreamliner 787</span>
+          </div>
+          <div class="tab-flight-desc">
+            הלוך: המראה ב-00:30 בלילה (שנת לילה מלאה לילדים, נחיתה ב-06:30 בבוקר). חזור: המראה ב-21:00 בערב.
+          </div>
+          <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MIA%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="tab-flight-btn">
+            🔍 פתח סינון מדויק ב-Google Flights (2 מבוגרים + 2 ילדים בני 5 ו-7 • 1–18 באוגוסט 2027 • ישיר) ↗
+          </a>
+        </div>
 
         <!-- Block 1 -->
         <div class="itinerary-block">
@@ -1467,6 +1568,26 @@
           טיסת לילה ישירה (אל על / אמריקן / יונייטד) – ישנים במטוס ומגיעים לבוקר מנהטן.
         </p>
 
+        <!-- Flight Filter Box for NY & PA -->
+        <div class="tab-flight-box">
+          <div class="tab-flight-header">
+            <span>✈️ טיסות לילה ישירות לניו יורק (TLV ⇄ JFK / EWR)</span>
+            <span class="tab-flight-badge">אל על / אמריקן / יונייטד • טיסת לילה ישירה</span>
+          </div>
+          <div class="tab-flight-desc">
+            המראה בחצות (00:30), הילדים ישנים כל הטיסה (8–9 שעות) ונוחתים ב-05:30 בבוקר במנהטן רעננים וללא שום קונקשן.
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20JFK%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="tab-flight-btn">
+              🔍 פתח חיפוש ל-JFK ב-Google Flights (2 מבוגרים + 2 ילדים בני 5 ו-7 • 1–18 באוגוסט 2027 • ישיר) ↗
+            </a>
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20EWR%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="tab-flight-btn" style="background: #0284c7;">
+              🔍 פתח חיפוש ל-EWR ב-Google Flights (2 מבוגרים + 2 ילדים בני 5 ו-7 • 1–18 באוגוסט 2027 • ישיר) ↗
+            </a>
+          </div>
+        </div>
+
+
         <!-- Block 1 -->
         <div class="itinerary-block">
           <div class="block-header">
@@ -1574,6 +1695,26 @@
         <p style="color: var(--text-muted); margin-bottom: 24px;">
           טיסה ישירה קצרה של 3.5 שעות בלבד למינכן – אפס ג'ט-לג ונוחות מרבית.
         </p>
+
+        <!-- Flight Filter Box for Austria -->
+        <div class="tab-flight-box">
+          <div class="tab-flight-header">
+            <span>✈️ טיסות ישירות קצרות לאוסטריה ואלפים (TLV ⇄ MUC / VIE)</span>
+            <span class="tab-flight-badge">לופטהנזה / אל על / אוסטריאן • 3.5 שעות בלבד</span>
+          </div>
+          <div class="tab-flight-desc">
+            טיסה קצרצרה של 3.5 שעות בלבד ללא שום ג'ט-לג (הפרש שעה אחת בלבד מישראל!). נחיתה ישירה במינכן או בוינה.
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MUC%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="tab-flight-btn">
+              🔍 פתח חיפוש למינכן ב-Google Flights (2 מבוגרים + 2 ילדים בני 5 ו-7 • 1–18 באוגוסט 2027 • ישיר) ↗
+            </a>
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20VIE%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="tab-flight-btn" style="background: #0284c7;">
+              🔍 פתח חיפוש לוינה ב-Google Flights (2 מבוגרים + 2 ילדים בני 5 ו-7 • 1–18 באוגוסט 2027 • ישיר) ↗
+            </a>
+          </div>
+        </div>
+
 
         <!-- Kinderhotel / Dachsteinkönig Luxury Upgrade Option -->
         <div class="kinderhotel-card">
@@ -1729,6 +1870,21 @@
         <p style="color: var(--text-muted); margin-bottom: 24px;">
           נחיתה ישירה בנמל התעופה אינצ'ון (ICN), לינה במלונות וסוויטות מרווחות, תחבורה ציבורית מושלמת, אוכל מותאם, אי ג'ג'ו הטרופי ולגולנד קוריאה.
         </p>
+
+        <!-- Flight Filter Box for South Korea -->
+        <div class="tab-flight-box" style="background: #fefce8; border-color: #fde047;">
+          <div class="tab-flight-header">
+            <span style="color: #854d0e;">✈️ טיסות ישירות לסיאול (TLV ⇄ ICN)</span>
+            <span class="tab-flight-badge" style="background: #ca8a04;">קוריאן אייר / אל על • ישיר 11.5 שעות</span>
+          </div>
+          <div class="tab-flight-desc" style="color: #a16207;">
+            טיסה ישירה לנמל התעופה הבינלאומי אינצ'ון (ICN) – המדורג מס' 1 בעולם ביעילות, שירות ובניקיון.
+          </div>
+          <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop" target="_blank" rel="noopener" class="tab-flight-btn" style="background: #ca8a04;">
+            🔍 פתח חיפוש לסיאול ב-Google Flights (2 מבוגרים + 2 ילדים בני 5 ו-7 • 1–18 באוגוסט 2027 • ישיר) ↗
+          </a>
+        </div>
+
 
         <!-- Block 1: Seoul -->
         <div class="itinerary-block">
