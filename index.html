@@ -235,37 +235,286 @@
       color: var(--primary);
     }
 
-    /* Tabs for Deep Dive */
+    /* =========================================================
+       Destination Hub & Scalable Option Selector UX
+       ========================================================= */
     .tabs-container {
       margin-bottom: 30px;
     }
 
-    .tabs-nav {
-      display: flex;
-      gap: 10px;
+    .destination-hub {
       margin-bottom: 20px;
-      overflow-x: auto;
-      padding-bottom: 4px;
     }
 
-    .tab-btn {
-      background: white;
-      border: 1px solid var(--border);
-      padding: 13px 22px;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
+    .hub-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .hub-header h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hub-header p {
+      font-size: 0.88rem;
       color: var(--text-muted);
-      transition: all 0.2s ease;
+    }
+
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .dest-card {
+      background: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 16px 14px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: right;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .dest-card:hover {
+      transform: translateY(-3px);
+      border-color: #93c5fd;
+      box-shadow: 0 10px 22px -5px rgba(37, 99, 235, 0.12);
+    }
+
+    .dest-card.active {
+      border-color: var(--primary);
+      background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+      box-shadow: 0 10px 24px -4px rgba(37, 99, 235, 0.22);
+      transform: translateY(-2px);
+    }
+
+    .dest-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .dest-title-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dest-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .dest-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .dest-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 20px;
+      background: #f1f5f9;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
       white-space: nowrap;
     }
 
-    .tab-btn.active {
+    .dest-card.active .dest-badge {
+      background: #2563eb;
+      color: white;
+    }
+
+    .dest-badge.candidate {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .dest-card.active .dest-badge.candidate {
+      background: #d97706;
+      color: white;
+    }
+
+    .dest-desc {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 12px;
+      min-height: 38px;
+    }
+
+    .dest-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .dest-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      color: #334155;
+    }
+
+    .dest-tag.price-tag {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: #1d4ed8;
+      font-weight: 800;
+    }
+
+    .dest-tag.flight-tag {
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+      color: #15803d;
+    }
+
+    .dest-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .dest-card.active .dest-cta {
+      color: var(--primary);
+    }
+
+    .dest-cta-indicator {
+      font-size: 0.8rem;
+    }
+
+    /* Sticky Floating Switcher for Seamless Reading */
+    .sticky-switcher {
+      position: sticky;
+      top: 12px;
+      z-index: 99;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1.5px solid rgba(203, 213, 225, 0.85);
+      border-radius: 50px;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+      margin-bottom: 22px;
+    }
+
+    .sticky-pills-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 2px 0;
+    }
+
+    .sticky-pills-wrap::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sticky-pill {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      padding: 7px 16px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sticky-pill:hover {
+      background: #e2e8f0;
+      border-color: #94a3b8;
+      transform: translateY(-1px);
+    }
+
+    .sticky-pill.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
+    }
+
+    .sticky-top-jump {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .sticky-top-jump:hover {
+      background: #e2e8f0;
+      color: var(--text);
+    }
+
+    .table-jump-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 6px;
+      background: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .table-jump-btn:hover {
       background: var(--primary);
       color: white;
-      border-color: var(--primary);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
     }
 
     .tab-content {
@@ -747,7 +996,7 @@
     @media print {
       body { background: white; padding: 0; }
       header { padding: 20px; }
-      .tabs-nav, .actions-bar, .photo-btn { display: none; }
+      .tabs-nav, .destination-hub, .sticky-switcher, .table-jump-btn, .actions-bar, .photo-btn { display: none; }
       .tab-content { display: block !important; margin-bottom: 30px; }
     }
   </style>
@@ -788,6 +1037,9 @@
             </a>
             <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20VIE%20nonstop%20round%20trip" target="_blank" rel="noopener" class="flight-pill">
               🛫 אוסטריה: TLV ⇄ VIE (אוסטריאן / אל על ישיר) ↗
+            </a>
+            <a href="https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20nonstop%20round%20trip" target="_blank" rel="noopener" class="flight-pill" style="background: #fefce8; border-color: #fde047; color: #854d0e;">
+              🛫 קוריאה: TLV ⇄ ICN (קוריאן אייר / אל על ישיר) ↗
             </a>
           </div>
         </div>
@@ -837,9 +1089,22 @@
         <thead>
           <tr>
             <th>סעיף תקציב</th>
-            <th>🚀 פלורידה (טיסה ישירה מיאמי אל על)</th>
-            <th>🏙️ ארה"ב (טיסה ישירה ניו יורק)</th>
-            <th>🇦🇹 אוסטריה (טיסה ישירה מינכן)</th>
+            <th>
+              🚀 פלורידה (טיסה ישירה מיאמי אל על)<br>
+              <button class="table-jump-btn" onclick="showTab('tab-florida', true)">צפה במסלול 👈</button>
+            </th>
+            <th>
+              🏙️ ארה"ב (טיסה ישירה ניו יורק)<br>
+              <button class="table-jump-btn" onclick="showTab('tab-ny-pa', true)">צפה במסלול 👈</button>
+            </th>
+            <th>
+              🇦🇹 אוסטריה (טיסה ישירה מינכן)<br>
+              <button class="table-jump-btn" onclick="showTab('tab-austria', true)">צפה במסלול 👈</button>
+            </th>
+            <th style="background: #fefce8; border-bottom: 2px solid #eab308;">
+              🇰🇷 דרום קוריאה (טיסה ישירה סיאול)<br>
+              <button class="table-jump-btn" style="background: #fef08a; color: #854d0e; border-color: #fde047;" onclick="showTab('tab-korea', true)">צפה במסלול 👈</button>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -848,65 +1113,228 @@
             <td><strong>$5,800</strong> (אל על Dreamliner ישיר, ~$1,450 לאדם)</td>
             <td><strong>$5,400</strong> (אמריקן/אל על ישיר, ~$1,350 לאדם)</td>
             <td><strong>$3,000</strong> (טיסה ישירה 3.5 שעות, ~$750 לאדם)</td>
+            <td><strong>$4,800</strong> (טיסה ישירה לסיאול, ~$1,200 לאדם)</td>
           </tr>
           <tr>
             <td><strong>לינה (17 לילות)</strong></td>
             <td><strong>$4,100</strong> (וילה בריזורט באורלנדו + מלונות חוף)</td>
             <td><strong>$5,280</strong> (מנהטן + ריזורט Kalahari + בקתות)</td>
             <td><strong>$4,240</strong> (מלונות דירות 4 כוכבים + Erding)</td>
+            <td><strong>$3,600</strong> (מלונות משפחתיים 4-5★ בסיאול וריזורט בג'ג'ו)</td>
           </tr>
           <tr>
-            <td><strong>השכרת רכב</strong></td>
+            <td><strong>השכרת רכב ותחבורה</strong></td>
             <td><strong>$1,650</strong> (מיניוואן ל-17 יום, ביטוח מלא)</td>
             <td><strong>$1,350</strong> (SUV ל-14 יום, ללא מנהטן)</td>
             <td><strong>$1,450</strong> (סטיישן/SUV ל-17 יום, ביטוח מלא)</td>
+            <td><strong>$1,100</strong> (רכבות מהירות KTX + טיסות פנים לג'ג'ו + רכב שכור)</td>
           </tr>
           <tr>
             <td><strong>דלק, כבישי אגרה וחניות</strong></td>
             <td><strong>$450</strong> (SunPass, חניות)</td>
             <td><strong>$400</strong> (E-ZPass, דלק)</td>
             <td><strong>$300</strong> (מדבקת אוטוסטרדה, דלק)</td>
+            <td><strong>$150</strong> (רכבות KTX בעיר, רכב רק בג'ג'ו)</td>
           </tr>
           <tr>
             <td><strong>כרטיסים ואטרקציות</strong></td>
             <td><strong>$2,650</strong> (דיסני, Volcano Bay, חלל, דולפינים, Waymo)</td>
             <td><strong>$750</strong> (Kalahari כלול במלון! הרשי, מוזיאונים)</td>
             <td><strong>$835</strong> (כרטיס זלצבורגלנד, מערת קרח, Erding)</td>
+            <td><strong>$1,400</strong> (Lotte World, Everland ופנדות, לגולנד, אקווריום)</td>
           </tr>
           <tr class="total-row">
             <td><strong>סה"כ עלות בסיס ($)</strong></td>
             <td>$14,650</td>
             <td>$13,180</td>
             <td>$9,825</td>
+            <td style="color: #0f172a; font-weight: 800;">$11,050</td>
           </tr>
           <tr class="total-row-ils">
             <td><strong>סה"כ בשקלים (₪)</strong></td>
             <td>~55,000 ₪</td>
             <td>~50,000 ₪</td>
             <td>~37,000 ₪</td>
+            <td style="color: #b45309; font-weight: 800;">~42,000 ₪</td>
           </tr>
           <tr style="background: #fdf4ff; border-top: 2px dashed #d946ef;">
             <td><strong>👑 אופציה: אוסטריה + 4 לילות בדאכשטיינקוניג</strong></td>
             <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
             <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
             <td style="color: #701a75; font-weight: 700;"><strong>$12,200 (~46,000 ₪)</strong><br><span style="font-size: 0.76rem; font-weight: normal; color: #86198f;">4 לילות 5★ אולטרה הכל-כלול + 13 בדירות יוקרה (חוסך אוכל)</span></td>
+            <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
           </tr>
           <tr style="background: #fae8ff;">
             <td><strong>👑 אופציה: אוסטריה שבוע מלא בדאכשטיינקוניג</strong></td>
             <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
             <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
             <td style="color: #701a75; font-weight: 700;"><strong>$15,200 (~57,000 ₪)</strong><br><span style="font-size: 0.76rem; font-weight: normal; color: #86198f;">7 לילות 5★ אולטרה הכל-כלול + 10 ב-Kinderhotel/בקתה</span></td>
+            <td style="color: var(--text-muted); font-size: 0.85rem;">-</td>
+          </tr>
+          <tr style="background: #f8fafc;">
+            <td><strong>ניווט ישיר לתוכנית יומית</strong></td>
+            <td><button class="table-jump-btn" onclick="showTab('tab-florida', true)">פתיחת פלורידה 👈</button></td>
+            <td><button class="table-jump-btn" onclick="showTab('tab-ny-pa', true)">פתיחת ארה"ב 👈</button></td>
+            <td><button class="table-jump-btn" onclick="showTab('tab-austria', true)">פתיחת אוסטריה 👈</button></td>
+            <td><button class="table-jump-btn" style="background: #fef08a; color: #854d0e; border-color: #fde047;" onclick="showTab('tab-korea', true)">פתיחת קוריאה 👈</button></td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Tabs Navigation -->
-    <div class="tabs-container">
-      <div class="tabs-nav">
-        <button class="tab-btn active" onclick="showTab('tab-florida')">🚀 פלורידה: טיסה ישירה באל על למיאמי</button>
-        <button class="tab-btn" onclick="showTab('tab-ny-pa')">🏙️ ארה"ב: טיסה ישירה לניו יורק</button>
-        <button class="tab-btn" onclick="showTab('tab-austria')">🇦🇹 אוסטריה: טיסה ישירה 3.5 שעות</button>
+    <!-- Tabs Navigation & Destination Hub -->
+    <div id="itinerarySection" class="tabs-container">
+
+      <!-- Destination Hub: Interactive Selector Cards -->
+      <div class="destination-hub">
+        <div class="hub-header">
+          <div>
+            <h3>🗺️ בחירת מסלול מפורט לחקירה והשוואה</h3>
+            <p>לחצו על כל יעד כדי לפתוח את תוכנית הימים המפורטת, תמונות מאומתות ודגשי קצב</p>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--text-muted); background: #f1f5f9; padding: 4px 10px; border-radius: 20px; font-weight: 600;">
+            4 אפשרויות זמינות לבחינה
+          </span>
+        </div>
+
+        <div class="dest-grid">
+          <!-- Card 1: Florida -->
+          <div class="dest-card active" data-tab="tab-florida" onclick="showTab('tab-florida', false)">
+            <div>
+              <div class="dest-card-top">
+                <div class="dest-title-group">
+                  <span class="dest-icon">🚀</span>
+                  <div>
+                    <div class="dest-name">פלורידה</div>
+                    <div style="font-size: 0.78rem; color: var(--text-muted);">מיאמי, חלל ואורלנדו</div>
+                  </div>
+                </div>
+                <span class="dest-badge">נבחר כעת ✓</span>
+              </div>
+              <div class="dest-desc">
+                טיסת לילה ישירה באל על למיאמי (Dreamliner 787), שיגור חלל אמיתי ביום, מונית Waymo אוטונומית ועולם המים Volcano Bay.
+              </div>
+              <div class="dest-tags">
+                <span class="dest-tag price-tag">~55,000 ₪</span>
+                <span class="dest-tag flight-tag">✈️ טיסה ישירה לילה</span>
+                <span class="dest-tag">עוגן 1 ביום</span>
+              </div>
+            </div>
+            <div class="dest-cta">
+              <span>צפה בתוכנית 18 ימים</span>
+              <span class="dest-cta-indicator">👈</span>
+            </div>
+          </div>
+
+          <!-- Card 2: NY & PA -->
+          <div class="dest-card" data-tab="tab-ny-pa" onclick="showTab('tab-ny-pa', false)">
+            <div>
+              <div class="dest-card-top">
+                <div class="dest-title-group">
+                  <span class="dest-icon">🏙️</span>
+                  <div>
+                    <div class="dest-name">ארה"ב (ניו יורק & PA)</div>
+                    <div style="font-size: 0.78rem; color: var(--text-muted);">מנהטן, שוקולד ואגמים</div>
+                  </div>
+                </div>
+                <span class="dest-badge">הקש לבחירה</span>
+              </div>
+              <div class="dest-desc">
+                טיסת לילה ישירה ל-JFK, קסם מנהטן קליל, פארק המים המקורה הגדול בארה"ב (Kalahari), עולם השוקולד הרשי ושלוות אגם ג'ורג'.
+              </div>
+              <div class="dest-tags">
+                <span class="dest-tag price-tag">~50,000 ₪</span>
+                <span class="dest-tag flight-tag">✈️ טיסה ישירה לילה</span>
+                <span class="dest-tag">עיר + טבע ממוזג</span>
+              </div>
+            </div>
+            <div class="dest-cta">
+              <span>צפה בתוכנית 18 ימים</span>
+              <span class="dest-cta-indicator">👈</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Austria -->
+          <div class="dest-card" data-tab="tab-austria" onclick="showTab('tab-austria', false)">
+            <div>
+              <div class="dest-card-top">
+                <div class="dest-title-group">
+                  <span class="dest-icon">🇦🇹</span>
+                  <div>
+                    <div class="dest-name">אוסטריה והאלפים</div>
+                    <div style="font-size: 0.78rem; color: var(--text-muted);">זלצבורג, טירול וארדינג</div>
+                  </div>
+                </div>
+                <span class="dest-badge">הקש לבחירה</span>
+              </div>
+              <div class="dest-desc">
+                טיסה ישירה של 3.5 שעות בלבד, אפס ג'ט-לג, אגמי טורקיז, מערת הקרח הגדולה בעולם, אופציית Kinderhotel ופארק Therme Erding.
+              </div>
+              <div class="dest-tags">
+                <span class="dest-tag price-tag">~37,000 ₪</span>
+                <span class="dest-tag flight-tag">✈️ ישיר 3.5 שעות</span>
+                <span class="dest-tag">חיסכון של 18k ₪</span>
+              </div>
+            </div>
+            <div class="dest-cta">
+              <span>צפה בתוכנית 18 ימים</span>
+              <span class="dest-cta-indicator">👈</span>
+            </div>
+          </div>
+
+          <!-- Card 4: South Korea (Candidate) -->
+          <div class="dest-card" data-tab="tab-korea" onclick="showTab('tab-korea', false)">
+            <div>
+              <div class="dest-card-top">
+                <div class="dest-title-group">
+                  <span class="dest-icon">🇰🇷</span>
+                  <div>
+                    <div class="dest-name">דרום קוריאה</div>
+                    <div style="font-size: 0.78rem; color: var(--text-muted);">סיאול, אי ג'ג'ו ופארקים</div>
+                  </div>
+                </div>
+                <span class="dest-badge candidate">💡 אופציה חדשה בשקילה</span>
+              </div>
+              <div class="dest-desc">
+                טיסה ישירה לסיאול, המדינה הבטוחה והנקייה בעולם לילדים, רכבות מהירות KTX, פארקי ענק מקורים (Lotte World) וספארי פנדות (Everland).
+              </div>
+              <div class="dest-tags">
+                <span class="dest-tag price-tag">~42,000 ₪</span>
+                <span class="dest-tag flight-tag">✈️ טיסה ישירה לסיאול</span>
+                <span class="dest-tag">בטיחות עילאית וטכנולוגיה</span>
+              </div>
+            </div>
+            <div class="dest-cta">
+              <span>צפה במפרט המסלול</span>
+              <span class="dest-cta-indicator">👈</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sticky Floating Quick-Switcher Bar -->
+      <div class="sticky-switcher">
+        <div class="sticky-pills-wrap">
+          <button class="sticky-pill active" data-tab="tab-florida" onclick="showTab('tab-florida', true)">
+            <span>🚀 פלורידה</span>
+            <span style="font-size: 0.75rem; opacity: 0.85;">(~55k ₪)</span>
+          </button>
+          <button class="sticky-pill" data-tab="tab-ny-pa" onclick="showTab('tab-ny-pa', true)">
+            <span>🏙️ ארה"ב (ניו יורק)</span>
+            <span style="font-size: 0.75rem; opacity: 0.85;">(~50k ₪)</span>
+          </button>
+          <button class="sticky-pill" data-tab="tab-austria" onclick="showTab('tab-austria', true)">
+            <span>🇦🇹 אוסטריה</span>
+            <span style="font-size: 0.75rem; opacity: 0.85;">(~37k ₪)</span>
+          </button>
+          <button class="sticky-pill" data-tab="tab-korea" onclick="showTab('tab-korea', true)">
+            <span>🇰🇷 דרום קוריאה</span>
+            <span style="font-size: 0.75rem; opacity: 0.85;">(~42k ₪)</span>
+          </button>
+        </div>
+        <button class="sticky-top-jump" onclick="jumpToItineraryTop()" title="חזרה לראש המסלול המפורט">
+          <span>🔝 לראש המסלול</span>
+        </button>
       </div>
 
       <!-- Tab 1: Florida Day-by-Day -->
@@ -1284,6 +1712,123 @@
           </div>
         </div>
       </div>
+
+      <!-- Tab 4: South Korea Day-by-Day (Candidate Option) -->
+      <div id="tab-korea" class="tab-content">
+        <div style="background: #fefce8; border: 1.5px solid #fde047; padding: 16px 20px; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; gap: 14px;">
+          <span style="font-size: 2.2rem; flex-shrink: 0;">🇰🇷</span>
+          <div>
+            <h4 style="color: #854d0e; font-size: 1.08rem; margin-bottom: 4px; font-weight: 800;">אופציה חדשה לבחינה: דרום קוריאה – עתידנות, פארקים ואיים</h4>
+            <p style="color: #a16207; font-size: 0.88rem; margin: 0; line-height: 1.5;">
+              המדינה הבטוחה והנקייה בעולם עם אפס פשיעה. טיסה ישירה לסיאול (11.5 שעות), רכבות מהירות KTX, פארק השעשועים המקורה הגדול בעולם (Lotte World) ועולם הפנדות (Everland) – מותאם באופן מושלם לילדים בני 5 ו-7.
+            </p>
+          </div>
+        </div>
+
+        <h3 style="margin-bottom: 6px;">🇰🇷 דרום קוריאה – עתידנות, פארקי ענק ואיים טרופיים (טיסה ישירה לסיאול)</h3>
+        <p style="color: var(--text-muted); margin-bottom: 24px;">
+          נחיתה ישירה בנמל התעופה אינצ'ון (ICN), לינה במלונות וסוויטות מרווחות, תחבורה ציבורית מושלמת, אוכל מותאם, אי ג'ג'ו הטרופי ולגולנד קוריאה.
+        </p>
+
+        <!-- Block 1: Seoul -->
+        <div class="itinerary-block">
+          <div class="block-header">
+            <span class="block-badge" style="background: #ca8a04;">שלב 1</span>
+            <span class="block-title">סיאול העתידנית – פארקים מקורים, פנדות ורובוטים (6 לילות)</span>
+            <span class="block-meta">מלון משפחתי 5★ בסיאול • תחבורה מעולה</span>
+            <button class="photo-btn" onclick="openPhotoModal('kr-seoul')">📸 הצג תמונות מ-Lotte World ועולם הפנדות</button>
+          </div>
+          <div class="day-list">
+            <div class="day-card highlight-purple">
+              <div class="day-title"><span>יום 1: נחיתת בוקר ישירה בנמל אינצ'ון (ICN) + התאקלמות</span><span class="drive-tag">נמל התעופה הטוב בעולם</span></div>
+              <div class="day-desc">נחיתה ישירה ונוחה. רכבת AREX ישירות למלון במרכז העיר. צהריים רגועים ומנוחה בבריכת המלון. אחה"צ: טיול קליל לאורך נחל צ'אונג-גה-צ'ון (Cheonggyecheon) המואר והקריר במרכז העיר.</div>
+            </div>
+            <div class="day-card highlight">
+              <div class="day-title"><span>יום 2: פארק השעשועים המקורה Lotte World (ממוזג לגמרי)</span><span class="drive-tag">עוגן 1 בלבד ביום</span></div>
+              <div class="day-desc">פארק השעשועים המקורה הגדול בעולם! מתקנים קסומים, טירת אגדות, בלונים פורחים תלויים ורכבות עדינות המתאימות בדיוק לגילאי 5 ו-7. ממוזג לחלוטין וללא שמש ישירה. אחה"צ חוזרים למנוחה ובריכה. במיטה ב-20:00.</div>
+            </div>
+            <div class="day-card">
+              <div class="day-title"><span>יום 3: ארמון Gyeongbokgung + בית קפה רובוטי עתידני</span><span class="drive-tag">15 דק' במטרו</span></div>
+              <div class="day-desc">בבוקר: לבישת בגדי Hanbok מסורתיים לילדים (חוויה צילומית מקסימה) וסיור רגוע ברחבות הארמון המלכותי. בצהריים: ביקור בבית קפה שבו רובוטים מכינים ומגישים שייקים וגלידות – הילדים מרותקים!</div>
+            </div>
+            <div class="day-card highlight">
+              <div class="day-title"><span>יום 4: פארק הנושא Everland & Panda World (צפייה בפנדות ענק)</span><span class="drive-tag">עוגן 1 בלבד ביום</span></div>
+              <div class="day-desc">ה"דיסנילנד" של דרום קוריאה! ביקור בוקר מרגש במתחם הפנדות (Panda World) – צפייה מקרוב בגורי פנדה ענקיים מכרסמים במבוק. נסיעת ספארי בתוך רכב ייעודי לצפייה בדובים וחיות בר.</div>
+            </div>
+            <div class="day-card">
+              <div class="day-title"><span>יום 5: מוזיאון הילדים והמדע של סיאול + רחוב הצעצועים</span><span class="drive-tag">יום קליל ללא מאמץ</span></div>
+              <div class="day-desc">בוקר של ניסויים מדעיים אינטראקטיביים, מנהרות לייזר ודינוזאורים במוזיאון הילדים. אחה"צ: ביקור ברחוב הצעצועים של דונגדמון וחנות הדמויות האהובות Kakao Friends.</div>
+            </div>
+            <div class="day-card">
+              <div class="day-title"><span>יום 6: ספריית הענק Starfield COEX + האקווריום המלכותי</span><span class="drive-tag">הכל במתחם אחד ממוזג</span></div>
+              <div class="day-desc">ביקור בקניון התת-קרקעי המפורסם: ספריית COEX עם קירות ספרים בגובה 13 מטר, ואקווריום ענק עם כרישים, פינגווינים ומנהרות מים תת-ימיות.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 2: Jeju Island -->
+        <div class="itinerary-block">
+          <div class="block-header">
+            <span class="block-badge" style="background: #0284c7;">שלב 2</span>
+            <span class="block-title">האי הטרופי ג'ג'ו (Jeju Island) – טבע, מבוכים וחופים (6 לילות)</span>
+            <span class="block-meta">טיסת פנים קצרה (50 דק') • ריזורט מפנק על הים • רכב שכור</span>
+            <button class="photo-btn" onclick="openPhotoModal('kr-jeju')">📸 הצג תמונות מהאי ג'ג'ו והר הגעש</button>
+          </div>
+          <div class="day-list">
+            <div class="day-card">
+              <div class="day-title"><span>יום 7: טיסה קצרה לאי ג'ג'ו והתמקמות בריזורט חוף</span><span class="drive-tag transit">50 דק' טיסה</span></div>
+              <div class="day-desc">טיסת פנים קצרה מנמל Gimpo ישירות לאי ג'ג'ו ("הוואי של אסיה"). איסוף רכב שכור מרווח. נסיעה לריזורט משפחתי עם בריכות מים ונוף לים. יום התאקלמות, רחצה ומנוחה.</div>
+            </div>
+            <div class="day-card highlight">
+              <div class="day-title"><span>יום 8: מבוך הצמחים Gimnyeong Maze + חוף הטורקיז Hamdeok</span><span class="drive-tag">25 דק' נסיעה</span></div>
+              <div class="day-desc">בבוקר: הרפתקה משפחתית במבוך הצמחים הירוק (הילדים מנווטים עד לצלצול בפעמון בראש הגשר). אחה"צ: רחצה רגועה בחוף Hamdeok עם מי טורקיז רדודים וחמימים וחול לבן ורך.</div>
+            </div>
+            <div class="day-card">
+              <div class="day-title"><span>יום 9: פארק המים והשעשועים Shinhwa World</span><span class="drive-tag">עוגן 1 בלבד ביום</span></div>
+              <div class="day-desc">מתחם מים ושעשועים ענק: מגלשות מים עדינות, בריכות גלים מותאמות לילדים קטנים ומתחם אנימציה צבעוני. מנוחה מוחלטת לאחה"צ.</div>
+            </div>
+            <div class="day-card">
+              <div class="day-title"><span>יום 10: מוזיאון הדובי טדי (Teddy Bear Museum) ועולם התה Osulloc</span><span class="drive-tag">20 דק' נסיעה</span></div>
+              <div class="day-desc">מוזיאון ענק המציג סצנות היסטוריות עם אלפי דובי טדי מונפשים. ביקור במטעי התה הירוק השלווים וגלידת תה ירוק עדינה.</div>
+            </div>
+            <div class="day-card highlight">
+              <div class="day-title"><span>יום 11: שייט בסירות שקופות במפרץ הוואיודו (Hado Kayak)</span><span class="drive-tag">מים צלולים כזכוכית</span></div>
+              <div class="day-desc">שייט רגוע בסירות קייאק עם תחתית שקופה לחלוטין – הילדים צופים בדגים ובצדפות שוחות מתחת לרגליים במים רדודים ושקטים.</div>
+            </div>
+            <div class="day-card">
+              <div class="day-title"><span>יום 12: תצפית הר הגעש הכבוי Seongsan Ilchulbong + מנוחה</span><span class="drive-tag">נוף פנורמי מרהיב</span></div>
+              <div class="day-desc">טיילת עץ קלה ומונגשת המשקיפה על המכתש הירוק הייחודי הנושק לים. אחה"צ רגוע בבריכת הריזורט ואריזה לקראת חזרה ליבשת.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 3: Legoland & Bullet Train -->
+        <div class="itinerary-block">
+          <div class="block-header">
+            <span class="block-badge" style="background: #16a34a;">שלב 3</span>
+            <span class="block-title">לגולנד קוריאה ורכבת הקליע KTX (5 לילות)</span>
+            <span class="block-meta">רכבת קליע ב-300 קמ"ש • פארק לגולנד ייעודי</span>
+          </div>
+          <div class="day-list">
+            <div class="day-card highlight-purple">
+              <div class="day-title"><span>יום 13: טיסה חזרה לסיאול + נסיעה ברכבת הקליע KTX (300 קמ"ש)</span><span class="drive-tag transit">חוויית רכבת עתידנית</span></div>
+              <div class="day-desc">טיסה קצרה חזרה לסיאול. עולים לרכבת הקליע KTX – נסיעה חלקה, שקטה ומהירה במיוחד. הילדים מרותקים לנופים החולפים בחלונות במהירות 300 קמ"ש.</div>
+            </div>
+            <div class="day-card highlight">
+              <div class="day-title"><span>ימים 14–15: פארק לגולנד קוריאה (Legoland Korea Resort)</span><span class="drive-tag">מותאם בול לגילאי 5 ו-7</span></div>
+              <div class="day-desc">פארק הלגולנד החדיש ביותר בעולם, ממוקם על אי שליו. מתקנים צבעוניים, בית ספר לנהיגה בלגו, מתחמי נינג'גו ומגלשות מים עדינות. שהייה במלון לגולנד עם חדרים מעוצבים לפי נושאים.</div>
+            </div>
+            <div class="day-card">
+              <div class="day-title"><span>יום 16: שופינג מתנות משפחתי ומוזיאון האשליות Trickeye</span><span class="drive-tag">יום עירוני כיפי</span></div>
+              <div class="day-desc">קניות של מזכרות, חטיפים קוריאניים מיוחדים וצעצועים. ביקור במוזיאון תלת-ממד אינטראקטיבי שבו הילדים "נכנסים" לתוך הציורים לצילומים משעשעים.</div>
+            </div>
+            <div class="day-card highlight">
+              <div class="day-title"><span>ימים 17–18: טיסה ישירה מסיאול (ICN) חזרה לתל אביב</span><span class="drive-tag transit">11.5 שעות ישיר</span></div>
+              <div class="day-desc">אריזה נינוחה, נסיעה קלה לנמל התעופה אינצ'ון (ICN). עלייה לטיסה הישירה הביתה. נחיתה בישראל ביום 18 מלאי חוויות וזיכרונות בלתי נשכחים!</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Decision Box -->
@@ -1292,7 +1837,8 @@
       <p>
         <strong>1. פלורידה (~55,000 ₪):</strong> טיסת לילה ישירה באל על למיאמי (Dreamliner) + שיגור חלל ביום + <strong>מונית אוטונומית (Waymo)</strong> + Volcano Bay.<br>
         <strong>2. צפון-מזרח ארה"ב (~50,000 ₪):</strong> טיסת לילה ישירה לניו יורק + מנהטן + פארק המים המקורה הגדול בארה"ב (Kalahari) + הרשי שוקולד וטבע ירוק.<br>
-        <strong>3. אוסטריה (~37,000 ₪):</strong> טיסה ישירה של 3.5 שעות + מערת הקרח הגדולה בעולם + פארק המים הגדול בעולם (Erding) + אפס ג'ט-לג וחיסכון של כ-18,000 ₪.
+        <strong>3. אוסטריה (~37,000 ₪):</strong> טיסה ישירה של 3.5 שעות + מערת הקרח הגדולה בעולם + פארק המים הגדול בעולם (Erding) + אפס ג'ט-לג וחיסכון של כ-18,000 ₪.<br>
+        <strong>4. דרום קוריאה (~42,000 ₪):</strong> טיסה ישירה לסיאול + המדינה הבטוחה והנקייה בעולם + Lotte World המקורה + Everland ופנדות ענק + חופי אי ג'ג'ו ולגולנד.
       </p>
       <div class="actions-bar">
         <button class="btn btn-print" onclick="window.print()">🖨️ הדפסה / שמירה כ-PDF לשיתוף</button>
@@ -1315,12 +1861,66 @@
   </div>
 
   <script>
-    function showTab(tabId) {
+    function showTab(tabId, shouldScroll = false) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.dest-card').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.sticky-pill').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
-      event.target.classList.add('active');
+
+      const targetContent = document.getElementById(tabId);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+
+      // Activate all elements matching data-tab
+      document.querySelectorAll(`[data-tab="${tabId}"]`).forEach(el => {
+        el.classList.add('active');
+        const badge = el.querySelector('.dest-badge');
+        if (badge && !badge.classList.contains('candidate')) {
+          badge.textContent = 'נבחר כעת ✓';
+        }
+      });
+
+      // Reset badges of non-active cards
+      document.querySelectorAll(`.dest-card:not([data-tab="${tabId}"])`).forEach(el => {
+        const badge = el.querySelector('.dest-badge');
+        if (badge && !badge.classList.contains('candidate')) {
+          badge.textContent = 'הקש לבחירה';
+        }
+      });
+
+      // Update URL hash
+      if (history.replaceState) {
+        history.replaceState(null, null, '#' + tabId);
+      }
+
+      // Smooth scroll if requested
+      if (shouldScroll) {
+        const sec = document.getElementById('itinerarySection');
+        if (sec) {
+          const yOffset = -20;
+          const y = sec.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }
     }
+
+    function jumpToItineraryTop() {
+      const sec = document.getElementById('itinerarySection');
+      if (sec) {
+        const yOffset = -20;
+        const y = sec.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+
+    // Auto-select tab based on URL hash on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && document.getElementById(hash)) {
+        showTab(hash, false);
+      }
+    });
 
     // Photo Data for Each Stage - 100% Authentic Attraction Photographs
     const stagePhotos = {
@@ -1501,6 +2101,31 @@
             url: 'images/at_hohenwerfen.jpg',
             title: '2,000 מ"ר של מתחם משחקים ומועדוני ילדים',
             desc: 'מועדוני ילדים מחולקים לפי גילאים עם צוות פדגוגי מוסמך מ-08:30 בבוקר עד 21:00 בערב.'
+          }
+        ]
+      },
+      'kr-seoul': {
+        title: 'סיאול: פארק השעשועים המקורה Lotte World, עולם הפנדות Everland וטכנולוגיה',
+        photos: [
+          {
+            url: 'images/kr_lotte_world.jpg',
+            title: 'פארק השעשועים המקורה הגדול בעולם (Lotte World Adventure)',
+            desc: 'צילום אמיתי מתוך מתחם Lotte World בסיאול – עולם אגדות מקורה וממוזג לחלוטין עם טירת קסמים, רכבות עדינות ומתקנים מושלמים לגילאי 5 ו-7.'
+          },
+          {
+            url: 'images/kr_everland_panda.jpg',
+            title: 'עולם הפנדות הענקיות (Everland Panda World)',
+            desc: 'צילום אמיתי של דובי הפנדה הענקיים האמיתיים בפארק Everland – חוויה נדירה של צפייה מקרוב בפנדות מכרסמות ענפי במבוק.'
+          }
+        ]
+      },
+      'kr-jeju': {
+        title: 'האי הגעשי ג\'ג\'ו (Jeju Island): חופי טורקיז, לוע הר געש וריזורטים',
+        photos: [
+          {
+            url: 'images/kr_jeju_island.jpg',
+            title: 'מכתש הר הגעש והחוף (Seongsan Ilchulbong, Jeju)',
+            desc: 'צילום אמיתי מהאוויר של מכתש הר הגעש הירוק הייחודי הנושק למי הטורקיז של האי ג\'ג\'ו – "ההוואי של אסיה".'
           }
         ]
       }
