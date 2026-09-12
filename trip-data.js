@@ -81,17 +81,17 @@ const TRIP_DATA = {
         "badge": "שלב 2",
         "badgeStyle": "",
         "title": "קוקואה ביץ' וחוף החלל (3 לילות)",
-        "meta": "מלון חוף • נסיעה של שעתיים ורבע ממיאמי",
+        "meta": "מלון חוף • כ-3 עד 3.5 שעות נסיעה ממיאמי",
         "photoKey": "fl-ksc",
         "photoBtnText": "📸 הצג תמונות משלב החלל והדולפינים",
         "days": [
           {
             "title": "יום 3: נסיעה נופית לקוקואה ביץ' והתאקלמות בחוף",
-            "tag": "שעתיים ורבע נסיעה",
+            "tag": "3 עד 3.5 שעות נסיעה",
             "tagClass": "",
             "cardClass": "",
             "cardStyle": "",
-            "desc": "נסיעה קלה צפונה לאורך החוף המזרחי למלון על החוף בקוקואה ביץ'. אחה\"צ של חוף וטיילת."
+            "desc": "נסיעה נינוחה צפונה לאורך החוף המזרחי (I-95 / Turnpike) למלון על החוף בקוקואה ביץ'. אחה\"צ של חוף וטיילת."
           },
           {
             "title": "יום 4: מרכז החלל קנדי (Kennedy Space Center) – בוקר",
@@ -520,12 +520,12 @@ const TRIP_DATA = {
             "desc": "סרבלי כורים, רכבת זעירה לבטן ההר, 2 מגלשות עץ ענקיות ושייט באגם מלח תת-קרקעי."
           },
           {
-            "title": "יום 4: מערת הקרח הגדולה בעולם (Eisriesenwelt)!",
+            "title": "יום 4: מערת הקרח הגדולה בעולם (Eisriesenwelt) או מערת דאכשטיין",
             "tag": "25 דק' נסיעה",
             "tagClass": "",
             "cardClass": "",
             "cardStyle": "",
-            "desc": "רכבל תלול אל תוך המצוק וכניסה עם עששיות לארמון קרח תת-קרקעי עצום – חוויית Once in a Lifetime!"
+            "desc": "רכבל תלול אל תוך המצוק וארמון קרח תת-קרקעי עצום. 💡 דגש הורים לילד בן 5: במערת Eisriesenwelt יש 1,400 מדרגות בעלטה ב-0°C. מומלץ לשקול עבור גילאי 5 את מערת הקרח של דאכשטיין (Dachstein Giant Ice Cave) הנגישה והנוחה בהרבה לקטנטנים!"
           },
           {
             "title": "יום 5: פארק המים והספא Therme Amadé",
@@ -653,9 +653,9 @@ const TRIP_DATA = {
     "subtitle": "נחיתה ישירה בנמל התעופה אינצ'ון (ICN), לינה במלונות וסוויטות מרווחות, תחבורה ציבורית מושלמת, אי ג'ג'ו הטרופי, לגולנד קוריאה והיערכות מוקפדת לאתגר האוכל לילדים.",
     "flightBox": {
       "title": "✈️ טיסות ישירות לסיאול (TLV ⇄ ICN)",
-      "badge": "קוריאן אייר / אל על • ישיר 11.5 שעות",
+      "badge": "קוריאן אייר (Korean Air) • טיסה ישירה יחידה 11.5 שעות",
       "desc": "טיסה ישירה לנמל התעופה הבינלאומי אינצ'ון (ICN) – המדורג מס' 1 בעולם ביעילות, שירות ובניקיון.",
-      "timingNote": "<strong>מתי ייפתחו הטיסות להזמנה ב-Google Flights?</strong> קווי הטיסות הישירות לסיאול (קוריאן אייר ואל על) נפתחים להזמנה כ-330 יום מראש — <strong>במהלך ספטמבר – אוקטובר 2026</strong> (כאשר טיסת החזור של 18/08/2027 נפתחת). עד אז מוצגת הודעה שאין עדיין טיסות ב-Google Flights. הקישור שמור ומסונן בדיוק עבורכם ויופעל ברגע הפתיחה!",
+      "timingNote": "<strong>מתי ייפתחו הטיסות להזמנה ב-Google Flights?</strong> קו הטיסות הישירות לסיאול של קוריאן אייר (Korean Air) נפתח להזמנה כ-330 יום מראש — <strong>במהלך ספטמבר – אוקטובר 2026</strong> (כאשר טיסת החזור של 18/08/2027 נפתחת). עד אז מוצגת הודעה שאין עדיין טיסות ב-Google Flights. הקישור שמור ומסונן בדיוק עבורכם ויופעל ברגע הפתיחה!",
       "btnText": "🔍 פתח חיפוש לסיאול ב-Google Flights (2 מבוגרים + 2 ילדים בני 5 ו-7 • 1–18 באוגוסט 2027 • ישיר) ↗",
       "url": "https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop",
       "boxStyle": "background: #fefce8; border-color: #fde047;",
@@ -789,18 +789,18 @@ const TRIP_DATA = {
       {
         "badge": "שלב 3",
         "badgeStyle": "background: #16a34a;",
-        "title": "לגולנד קוריאה ורכבת הקליע KTX (5 לילות)",
+        "title": "לגולנד קוריאה ורכבת ITX-Cheongchun (5 לילות)",
         "meta": "רכבת קליע ב-300 קמ\"ש • פארק לגולנד ייעודי",
         "photoKey": null,
         "photoBtnText": null,
         "days": [
           {
-            "title": "יום 13: טיסה חזרה לסיאול + נסיעה ברכבת הקליע KTX (300 קמ\"ש)",
-            "tag": "חוויית רכבת עתידנית",
+            "title": "יום 13: טיסה חזרה לסיאול + נסיעה ברכבת המהירה ITX לצ'ונצ'ון",
+            "tag": "רכבת מהירה דו-קומתית",
             "tagClass": "",
             "cardClass": "",
             "cardStyle": "",
-            "desc": "טיסה קצרה חזרה לסיאול. עולים לרכבת הקליע KTX – נסיעה חלקה, שקטה ומהירה במיוחד. הילדים מרותקים לנופים החולפים בחלונות במהירות 300 קמ\"ש."
+            "desc": "טיסה קצרה חזרה לסיאול. עולים לרכבת המהירה והמודרנית ITX-Cheongchun לצ'ונצ'ון – נסיעה דו-קומתית חלקה של כשעה ורבע ישירות לפארק לגולנד."
           },
           {
             "title": "ימים 14–15: פארק לגולנד קוריאה (Legoland Korea Resort)",
@@ -880,7 +880,7 @@ const TRIP_DATA = {
           "url": "https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20MUC%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop"
         },
         {
-          "text": "<strong>$4,800</strong> (טיסה ישירה לסיאול, ~$1,200 לאדם)",
+          "text": "<strong>$4,800</strong> (קוריאן אייר ישיר לסיאול, ~$1,200 לאדם)",
           "linkText": "🔍 פתח חיפוש טיסה לקוריאה ↗",
           "url": "https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop",
           "linkStyle": "color: #854d0e;"
@@ -917,7 +917,7 @@ const TRIP_DATA = {
           "text": "<strong>$1,450</strong> (סטיישן/SUV ל-17 יום, ביטוח מלא)"
         },
         {
-          "text": "<strong>$1,100</strong> (רכבות מהירות KTX + טיסות פנים לג'ג'ו + רכב שכור)"
+          "text": "<strong>$1,100</strong> (רכבות מהירות ITX/KTX + טיסות פנים לג'ג'ו + רכב שכור)"
         }
       ]
     },
@@ -934,7 +934,7 @@ const TRIP_DATA = {
           "text": "<strong>$300</strong> (מדבקת אוטוסטרדה, דלק)"
         },
         {
-          "text": "<strong>$150</strong> (רכבות KTX בעיר, רכב רק בג'ג'ו)"
+          "text": "<strong>$150</strong> (מטרו ורכבות בעיר, רכב רק בג'ג'ו)"
         }
       ]
     },
@@ -1064,7 +1064,7 @@ const TRIP_DATA = {
     "url": "https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20VIE%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop"
   },
   {
-    "label": "🛫 קוריאה: TLV ⇄ ICN (קוריאן אייר / אל על ישיר) ↗",
+    "label": "🛫 קוריאה: TLV ⇄ ICN (קוריאן אייר ישיר) ↗",
     "url": "https://www.google.com/travel/flights?q=Flights%20from%20TLV%20to%20ICN%20round%20trip%20departing%202027-08-01%20returning%202027-08-18%20with%202%20adults%20and%202%20children%20nonstop",
     "style": "background: #fefce8; border-color: #fde047; color: #854d0e;"
   }
